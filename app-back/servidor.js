@@ -47,26 +47,28 @@ function recibirRegistroPost(peticionHttp,respuestaHttp){
 rutasAPI.route("/registro").post(recibirRegistroPost);
 
 //Login y comprobacion del usuario
-rutasAPI.route("/iniciarsesion/:id").get(function(reqPeticionHttp, resRespuestaHttp){
-    const id = reqPeticionHttp.params.id;
+rutasAPI.route("/login").get(function(reqPeticionHttp, resRespuestaHttp){
+    const email = reqPeticionHttp.body.email;
     const objUsuario = reqPeticionHttp.body;
-    // const password = reqPeticionHttp.param.password;
-    
-    Usuario.findById(id, function(err, usu){
-        if(err){
-            console.log(" Error:  "+ err);
+
+    Usuario.findOne(
+        {"email": email}, (err, usu)=>{
+        if(err || usu === null){
+            console.log("Error:  " + err);
+            resRespuestaHttp.status(401).send("Correo incorrecto")
         }else{
+            console.log("AAAAAAAAA")
             console.log(usu)
-            console.log(objUsuario)
-            console.log(objUsuario.password);
+            console.log(objUsuario.email)
             if(usu.email === objUsuario.email && usu.password === objUsuario.password){
                 resRespuestaHttp.status(200).json({
                     "hola":"Bienvenido " + usu.nombre
                 });
             }else{
-                console.log("contraseña incorrecta")
-                resRespuestaHttp.status(404).send("Contraseña incorrecta");
+                console.log("Contraseña incorrecta")
+                resRespuestaHttp.status(401).send("Contraseña incorrecta");
             }
         }
-    });
+    }).then(res=>res)
+    .catch(err=>err);    
 });
