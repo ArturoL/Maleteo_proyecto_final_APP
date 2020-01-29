@@ -1,0 +1,96 @@
+
+.botonesFaceyGoogle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.facebookbutton{
+    height: 2.5em;
+    background-color: rgb(56, 89, 156);
+    color: white;
+    border-radius: 5px;
+    width: 8em;
+    font-size: 1.2em;
+
+}
+.googlebutton{
+    height: 2.5em;
+    border: solid rgb(109, 109, 109) 1px;
+    border-radius: 5px;
+    color: black;
+    width: 8em;
+    background-color: white;
+    font-size: 1.2em;
+}
+
+.contenedorRegistro{
+    padding: 1.5em;
+}
+
+.contenedorRegistro p{
+    color: rgb(88, 88, 88);
+    font-size: 0.8em;
+    margin-top: 2em;
+
+}
+
+.unete{
+    font-weight: 500;
+    font-size: 1.8em;
+
+}
+
+.formularioRegistro{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+
+}
+
+.formRegistro{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+   
+}
+.formRegistro label{
+    color: rgb(88, 88, 88);
+    font-weight: 700;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+.formRegistro input{
+    border-style: none;
+    border-bottom:solid rgb(151,151,151) 0.5pt;
+    height: 3em;
+    margin-bottom: 1em;
+}
+.checkboxRegistro{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.checkboxRegistro label{
+    font-size: 0.8em;
+
+}
+
+.botonRegistro{
+    background-color: rgb(246,143,36);
+    box-shadow:black,50%;
+    height: 1em;
+    border-style: none;
+    border-radius: 5px;
+    height: 3em;
+    width: 80%;
+    align-self: center;
+    color: white;
+    font-weight: 800 ;
+    font-size: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+}

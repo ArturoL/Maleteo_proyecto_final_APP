@@ -43,4 +43,30 @@ function recibirRegistroPost(peticionHttp,respuestaHttp){
     console.log("3) - La peticion Http ha sido procesada");
 }
 
+//Registro de usuarios
 rutasAPI.route("/registro").post(recibirRegistroPost);
+
+//Login y comprobacion del usuario
+rutasAPI.route("/iniciarsesion/:id").get(function(reqPeticionHttp, resRespuestaHttp){
+    const id = reqPeticionHttp.params.id;
+    const objUsuario = reqPeticionHttp.body;
+    // const password = reqPeticionHttp.param.password;
+    
+    Usuario.findById(id, function(err, usu){
+        if(err){
+            console.log(" Error:  "+ err);
+        }else{
+            console.log(usu)
+            console.log(objUsuario)
+            console.log(objUsuario.password);
+            if(usu.email === objUsuario.email && usu.password === objUsuario.password){
+                resRespuestaHttp.status(200).json({
+                    "hola":"Bienvenido " + usu.nombre
+                });
+            }else{
+                console.log("contraseña incorrecta")
+                resRespuestaHttp.status(404).send("Contraseña incorrecta");
+            }
+        }
+    });
+});
