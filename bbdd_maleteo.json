@@ -1,10 +1,10 @@
- [
+[
     {
         "nombre": "Yuli",
         "apellido": "Ewing",
         "email": "curabitur.phasellus@vestibulusmod.ca",
-        "password": "Curae55",
-        "fecha_nacimiento": "09/02/2019",
+        "password": "44urae55",
+        "edad":25,
         "foto": "vacio",
         "guardian": "False"
     },
@@ -14,7 +14,7 @@
         "apellido": "Shepard",
         "email": "arcu.odio@antedictumcursus.net",
         "password": "diam66",
-        "fecha_nacimiento": "15/07/2019",
+        "edad":32,
         "foto": "vacio",
         "guardian": "False"
     },
@@ -22,8 +22,8 @@
         "nombre": "Emerson",
         "apellido": "Wall",
         "email": "nuncat@volutpatnunc.co.uk",
-        "password": "necante.",
-        "fecha_nacimiento": "09/11/2020",
+        "password": "necante",
+        "edad":37,
         "foto": "vacio",
         "guardian": "False"
     },
@@ -32,14 +32,20 @@
         "apellido": "Soyprogramador",
         "email": "mi@consequatnecmollis.org",
         "password": "tortor",
-        "fecha_nacimiento": "01/06/2019",
+        "edad":33,
         "foto": "vacio",
         "guardian": "True",
-        "datos_guardian":{
-            "ubicacion": "-48.63688, -156.76661",
+        "datos_guardian": {
+            "ubicacion": "Madrid",
             "capacidad_maletas": 10,
             "titulo": "El hall de hsgsdfafdf",
-            "disponibilidad_horaria": "17/08/2019",
+            "disponibilidad":"Lunes-Viernes",
+            "no_disponible":
+                ["31-01-2020", 
+                "07-12-2020",
+                "02-10-2020",
+                "01-11-2020"
+                ],
             "valoracion": 3
         }
     },
@@ -48,30 +54,42 @@
         "apellido": "Harvey",
         "email": "parturient.nascetur@pede.co.uk",
         "password": "estfhghfyf",
-        "fecha_nacimiento": "18/05/2019",
+        "edad":28,
         "foto": "vacio",
         "guardian": "True",
-        "datos_guardian":{
-            "ubicacion": "0.89798, -117.78194",
+        "datos_guardian": {
+            "ubicacion": "Madrid",
             "capacidad_maletas": 10,
             "titulo": "El antro de Dalton",
-            "disponibilidad_horaria": "03/06/2019",
+            "disponibilidad" : "Sabados-Domingos",
+            "no_disponible":
+            ["01-01-2020", 
+            "31-12-2020",
+            "02-02-2020",
+            "01-05-2020"
+            ],
             "valoracion": 1
         }
     },
     {
         "nombre": "Hilda",
         "apellido": "Aguirre",
-        "email": "augue.scelerisque@tristitis.edu",
+        "email": "augue.pppppp@tristitis.edu",
         "password": "magna5465",
-        "fecha_nacimiento": "12/09/2020",
+        "edad":88,
         "foto": "vacio",
         "guardian": "True",
-        "datos_guardian":{
-            "ubicacion": "-47.73337, -82.99607",
-            "capacidad_maletas": 4,
+        "datos_guardian": {
+            "ubicacion": "Madrid",
+            "capacidad_maletas": 234,
             "titulo": "El palacete de Aguirre",
-            "disponibilidad_horaria": "08/12/2020",
+            "disponibilidad":"Sabados-Domingos",
+            "no_disponible":
+            ["01-11-2020", 
+            "31-10-2020",
+            "02-06-2020",
+            "01-09-2020"
+            ],
             "valoracion": 4
         }
     },
@@ -80,14 +98,20 @@
         "apellido": "Teda",
         "email": "mauris.nunc@nibhdolor.edu",
         "password": "a892ddcnc",
-        "fecha_nacimiento": "20/02/2019",
+        "edad":22,
         "foto": "vacio",
         "guardian": "True",
         "datos_guardian": {
-            "ubicacion": "46.10016, -152.71948",
+            "ubicacion": "Madrid",
             "capacidad_maletas": 4,
             "titulo": "El trastero de Teda, Quin",
-            "disponibilidad_horaria": "05/05/2020",
+            "disponibilidad": "Lunes-Viernes",
+            "no_disponible":
+            ["22-01-2020", 
+            "15-12-2020",
+            "25-02-2020",
+            "12-05-2020"
+            ],
             "valoracion": 2
         }
     },
@@ -96,14 +120,20 @@
         "apellido": "Rivas",
         "email": "quis.diam@nonhendreritid.ca",
         "password": "etndnkkk23",
-        "fecha_nacimiento": "06/06/2020",
+        "edad":38,
         "foto": "vacio",
         "guardian": "True",
         "datos_guardian": {
-            "ubicacion": "-32.27759, 178.69806",
+            "ubicacion": "Barcelona",
             "capacidad_maletas": 2,
             "titulo": "El hall de Skyler",
-            "disponibilidad_horaria": "16/04/2019",
+            "disponibilidad":"Sabados-Domingos",
+            "no_disponible":
+            ["01-04-2020", 
+            "31-11-2020",
+            "02-08-2020",
+            "01-06-2020"
+            ],
             "valoracion": 5
         }
     },
@@ -112,7 +142,7 @@
         "apellido": "Klein",
         "email": "fusce.dolor@eratsemperrutrum.com",
         "password": "nonummypretty",
-        "fecha_nacimiento": "25/01/2020",
+        "edad":54,
         "foto": "vacio",
         "guardian": "False"
     },
@@ -121,7 +151,7 @@
         "apellido": "Roach",
         "email": "ultricies@diamPeitant.org",
         "password": "Duisyaesta",
-        "fecha_nacimiento": "26/01/2020",
+        "edad":29,
         "foto": "vacio",
         "guardian": "False"
     }
