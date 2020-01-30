@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import './App.css';
 import RegistroUsuarios from "./RegistroUsuarios";
 import LoginUsuario from "./LoginUsuario";
+import HomeMaleteo from "./HomeMaleteo";
+import UbicacionBusquedaOpcciones from './UbicacionBusquedaOpciones';
+
 
 
 
@@ -26,6 +29,8 @@ function App(){
           
           <Route path="/iniciarsesion" exact component={LoginUsuario}/>
           <Route path="/registro" exact component={RegistroUsuarios}/>
+          <Route path="/home" exact component={HomeMaleteo}/>
+          <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
   
         
     </div>         

@@ -56,6 +56,7 @@ class RegistroUsuarios extends /*React.*/ Component{
         });
     }
 
+    
     onSubmit(evt){
         evt.preventDefault();// Invocamos al servicio Http ajax fetch....
         console.log(`Datos: ${this.state.nombre}, ${this.state.apellido}, ${this.state.password},${this.state.email},${this.state.edad}`)
@@ -89,16 +90,16 @@ class RegistroUsuarios extends /*React.*/ Component{
     <div className="formularioRegistro col-xs-12">
     <form className='formRegistro'onSubmit={this.onSubmit}>
         <label > Direccion de correo electrónico </label>
-        <input type="email" value={this.state.email} onChange={this.onChangeEmail} placeholder="Email"/>
+        <input type="email" value={this.state.email} onChange={this.onChangeEmail} placeholder="Email" required/>
         
         <label >Nombre</label>
-        <input type="text" value={this.state.nombre} onChange={this.onChangeNombre} placeholder="Nombre"/>
+        <input type="text" value={this.state.nombre} onChange={this.onChangeNombre} placeholder="Nombre" required/>
         
         <label >Apellido</label>
-        <input type="text" value={this.state.apellido} onChange={this.onChangeApellido}placeholder="Apellido"/>
+        <input type="text" value={this.state.apellido} onChange={this.onChangeApellido}placeholder="Apellido" required/>
         
         <label >Contraseña</label>
-        <input type="password" value={this.state.password} onChange={this.onChangePassword} placeholder="Password"/>
+        <input type="password" value={this.state.password} onChange={this.onChangePassword} placeholder="Password" required/>
         
         <label >Edad</label>
         <input type="number" value={this.state.edad} onChange={this.onChangeEdad} placeholder="Debes ser mayor de edad para registrarte" required/>
