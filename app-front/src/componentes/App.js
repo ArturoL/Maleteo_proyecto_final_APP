@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import './App.css';
-import RegistroUsuarios from "./RegistroUsuarios";
-import LoginUsuario from "./LoginUsuario";
 import HomeMaleteo from "./HomeMaleteo";
 import UbicacionBusquedaOpcciones from './UbicacionBusquedaOpciones';
-
+import RegistroUsuarios from "./registro/RegistroUsuarios";
+import LoginUsuario from "./login/LoginUsuario";
+import DetallesReserva from './detalles_reserva/detalles_reserva';
 
 
 
@@ -31,6 +31,7 @@ function App(){
           <Route path="/registro" exact component={RegistroUsuarios}/>
           <Route path="/home" exact component={HomeMaleteo}/>
           <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
+          <Route path="/detalles_reserva" exact component={DetallesReserva}/>
   
         
     </div>         
