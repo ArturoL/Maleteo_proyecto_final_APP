@@ -33,7 +33,7 @@ class LoginUsuario extends /*React.*/ Component{
 
     onSubmit(evt){
         evt.preventDefault();// Invocamos al servicio Http ajax fetch....
-        console.log(`Datos: ${this.state.password},${this.state.email}`)
+        console.log(`Datos: ${this.state.email},${this.state.password}`)
         window.fetch('http://localhost:4000/api/malt/login', {
             method: 'POST',
             body: JSON.stringify({
@@ -48,7 +48,7 @@ class LoginUsuario extends /*React.*/ Component{
                 alert('Usuario login')
            
             } else {
-                alert('Usuario NO Autoriz')
+                alert('Usuario NO Autorizado')
            
             }})
         .catch((vacas)=> 'Pues habra ido mal jojo')
