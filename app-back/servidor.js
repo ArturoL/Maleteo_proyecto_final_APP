@@ -57,9 +57,9 @@ rutasAPI.route("/login").post(function(reqPeticionHttp, resRespuestaHttp){
             console.log("Error:  " + err);
             resRespuestaHttp.status(401).send("Correo incorrecto")
         }else{
-            console.log("AAAAAAAAA")
-            console.log(usu)
-            console.log(objUsuario.email)
+            // console.log("AAAAAAAAA")
+            // console.log(usu)
+            // console.log(objUsuario.email)
             if(usu.email === objUsuario.email && usu.password === objUsuario.password){
                 resRespuestaHttp.status(200).json({
                     "hola":"Bienvenido " + usu.nombre
