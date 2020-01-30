@@ -47,7 +47,7 @@ function recibirRegistroPost(peticionHttp,respuestaHttp){
 rutasAPI.route("/registro").post(recibirRegistroPost);
 
 //Login y comprobacion del usuario
-rutasAPI.route("/login").get(function(reqPeticionHttp, resRespuestaHttp){
+rutasAPI.route("/login").post(function(reqPeticionHttp, resRespuestaHttp){
     const email = reqPeticionHttp.body.email;
     const objUsuario = reqPeticionHttp.body;
 
