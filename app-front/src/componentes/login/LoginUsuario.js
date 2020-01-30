@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import HomeMaleteo from "../HomeMaleteo";
 import './LoginUsuario.css';
+
 
 
 class LoginUsuario extends /*React.*/ Component{
@@ -33,7 +36,7 @@ class LoginUsuario extends /*React.*/ Component{
 
     onSubmit(evt){
         evt.preventDefault();// Invocamos al servicio Http ajax fetch....
-        console.log(`Datos: ${this.state.password},${this.state.email}`)
+        console.log(`Datos: ${this.state.email},${this.state.password}`)
         window.fetch('http://localhost:4000/api/malt/login', {
             method: 'POST',
             body: JSON.stringify({
@@ -44,16 +47,15 @@ class LoginUsuario extends /*React.*/ Component{
         }).then((res)=> {
             if (res.status === 200) {
 
-                window.location = '/home.html'
+                window.location = '/home'
                 alert('Usuario login')
            
             } else {
-                alert('Usuario NO Autoriz')
+                alert('Usuario NO Autorizado')
            
             }})
         .catch((vacas)=> 'Pues habra ido mal jojo')
     }
-
 
 
 
@@ -83,7 +85,7 @@ class LoginUsuario extends /*React.*/ Component{
                 <input type="password" value={this.state.password} onChange={this.onChangePassword} placeholder="Contraseña"/>
                 
                 <button type="submit" class="botonLogin">Iniciar sesión</button>
-        
+                <Route path="/home" exact component={HomeMaleteo}/>
             </form>
             </div>
         </div>

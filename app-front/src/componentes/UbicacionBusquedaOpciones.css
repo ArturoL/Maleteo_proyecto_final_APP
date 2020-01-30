@@ -1,0 +1,35 @@
+.ubicacionOpciones{
+height: 100%;
+padding: 1.5em;
+
+}
+
+.buscadorInput{
+    width: 100%;
+}
+
+.buscador1{
+    border: solid rgb(243, 243, 243) 1px;
+    border-radius: 5px;
+    height: 5em;
+    box-shadow:  inset 0px 0px 15px 10px rgba(209, 209, 209, 0.1);
+    width: 100%;
+}
+
+
+.btnArrow{
+
+    
+    text-align: center;
+    background-color: rgb(246,143,36);
+    box-shadow:black,50%;
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    border-radius: 50%;
+    color: white;
+    font-weight: 800;
+    position: absolute;
+    bottom: 6em;
+    right: 4em;
+}
