@@ -12,13 +12,11 @@ const PORT = 4000;
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect('mongodb://127.0.0.1:27017/test');
+mongoose.connect('mongodb://127.0.0.1:27017/maleteo');
 const conexion = mongoose.connection;
+conexion.once("open",function(){                            //conectar con BBDD a través de Mongoose
+    console.log('¡¡Hemos conectado con Mongo!');
 
-//let m = JSON.parse('./ddbb_maleteo.json')
-
-conexion.once("open",function(){
-    console.log("0) - Eureka hemos conectado en Mongoose");
 });
 
 app.listen(PORT,
