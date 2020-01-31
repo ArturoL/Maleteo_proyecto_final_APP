@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom";
 import './App.css';
-import RegistroUsuarios from "./RegistroUsuarios";
-import LoginUsuario from "./LoginUsuario";
+import RegistroUsuarios from "./registro/RegistroUsuarios";
+import LoginUsuario from "./login/LoginUsuario";
 import Inicio from "./Inicio";
 import ServicioLogin from '../servicios/ServicioLogin';
 
