@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './LoginUsuario.css';
 import { Route, Redirect } from 'react-router-dom';
-import ServicioLogin from '../servicios/ServicioLogin';
+import ServicioLogin from '../../servicios/ServicioLogin';
 
 
 class LoginUsuario extends /*React.*/ Component{
