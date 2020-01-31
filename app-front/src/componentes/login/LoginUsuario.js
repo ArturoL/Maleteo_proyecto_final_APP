@@ -6,6 +6,8 @@ import ServicioLogin from '../../servicios/ServicioLogin';
 
 
 
+
+
 class LoginUsuario extends /*React.*/ Component{
 
 
@@ -37,7 +39,7 @@ class LoginUsuario extends /*React.*/ Component{
 
     onSubmit(evt){
         evt.preventDefault();// Invocamos al servicio Http ajax fetch....
-        console.log(`Datos: ${this.state.email},${this.state.password}`)
+        console.log(`Datos: ${this.state.password},${this.state.email}`)
         window.fetch('http://localhost:4000/api/malt/login', {
             method: 'POST',
             body: JSON.stringify({
@@ -52,7 +54,7 @@ class LoginUsuario extends /*React.*/ Component{
                 this.setState(this.state);
            
             } else {
-                alert('Usuario NO Autorizado')
+                alert('Usuario NO Autoriz')
            
             }})
         .catch((vacas)=> 'Pues habra ido mal jojo')

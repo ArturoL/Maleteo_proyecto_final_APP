@@ -20,6 +20,6 @@
   color: black;
 }
 
-
-
-
+nav.navegadorN1 a:focus {
+  border-bottom: 2px solid orange;
+}

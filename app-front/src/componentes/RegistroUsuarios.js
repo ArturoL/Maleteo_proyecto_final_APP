@@ -74,9 +74,6 @@ class RegistroUsuarios extends /*React.*/ Component{
                 headers: {'Content-Type': 'application/json'}
             }).then((res)=> alert('Usuario creado'))
             .catch((vacas)=> 'Pues habra ido mal jojo')
-
-            //TODO: quitar window.location
-            window.location = "/iniciarsesion";
         }
     }
 
@@ -193,8 +190,8 @@ class RegistroUsuarios extends /*React.*/ Component{
         <h5 style={{color: "red"}}>{this.state.errors["edad"]}</h5>
 
         <div className='checkboxRegistro'>
-        <input id="checkbox" type="checkbox" value="checkbox" placeholder="Email" required/>
-        <label htmlFor="checkbox">Quiero recibir consejos sobre como gestionar mi equipaje,ofertas y novedades.</label>
+        <input name="checkbox" type="checkbox" value="checkbox" placeholder="Email" required/>
+        <label for="checkbox">Quiero recibir consejos sobre como gestionar mi equipaje,ofertas y novedades.</label>
         
         </div>
         <button type="submit" className="botonRegistro" value="registrar">Resgístrate</button>
