@@ -81,7 +81,7 @@ class LoginUsuario extends /*React.*/ Component{
         
             </form>
             {
-             (ServicioLogin.getLogueado() ? <Redirect to="/inicio" /> : "")
+             (ServicioLogin.getLogueado() ? <Redirect to="/home" /> : "")
             }
             </div>
         </div>

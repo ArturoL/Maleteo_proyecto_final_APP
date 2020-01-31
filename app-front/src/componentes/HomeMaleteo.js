@@ -6,16 +6,11 @@ import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 
 class HomeMaleteo extends /*React.*/ Component{
-
-
-    
-
-
     render(){
         return(
         <div className='wrapper'>
             <div className='contenedorHome col-xs-12'>
-            <div classname='homeTitulo col-xs-12'>
+            <div className='homeTitulo col-xs-12'>
                 <h1 className='titulohome'>Encuentra tu guardián</h1>
             </div>
             <div className="formHome col-xs-12">
@@ -26,7 +21,7 @@ class HomeMaleteo extends /*React.*/ Component{
                     <input className='calendarioHome' placeholder='Deposito/Salida'/>
                 </div>
                 <div className="botonyNumero">
-                        <select classname="numeroMaletas" name="NMaletas" placeholder='Nº Maletas'>
+                        <select className="numeroMaletas" name="NMaletas" placeholder='Nº Maletas'>
                             <option disabled selected >Nº de Maletas</option>
                             <option>1</option>
                             <option>2</option>
@@ -54,7 +49,7 @@ class HomeMaleteo extends /*React.*/ Component{
                     <article className="expArticle">
                         <img className='imagenArticulo' src="https://via.placeholder.com/150"/>
                         <div className="descripcion col-xs-12">
-                            <h3 class="tituloarticle">Un pedacito de italia en tu vida</h3>
+                            <h3 className="tituloarticle">Un pedacito de italia en tu vida</h3>
                             <p>Pimpam trucu trucu pim pam lorem ipsum trucu trucu lorem sempen fidelis cucu meca peca lucu trucu trucu</p>
                         </div>
                     </article>

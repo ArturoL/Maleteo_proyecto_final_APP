@@ -5,6 +5,7 @@ import RegistroUsuarios from "./registro/RegistroUsuarios";
 import LoginUsuario from "./login/LoginUsuario";
 import Inicio from "./Inicio";
 import ServicioLogin from '../servicios/ServicioLogin';
+import HomeMaleteo from './HomeMaleteo';
 
 class App extends Component {
 
@@ -40,10 +41,12 @@ class App extends Component {
           { ServicioLogin.getLogueado() ? "logueado" : "NO login"}
 
           <header className='cabeceraApp col-xs-12'>
+            <a href="/home">Atras</a>
             <nav className="navegadorN1">
               {
                 ! ServicioLogin.getLogueado() ? (
                   <React.Fragment>
+
                     <div className="iniciarSesion">
                       <Link to="/iniciarsesion" className='navLogin'> Iniciar sesión </Link>         
                     </div>
@@ -64,6 +67,7 @@ class App extends Component {
             <Route path="/iniciarsesion" exact component={LoginUsuario}/>
             <Route path="/registro" exact component={RegistroUsuarios}/>
             <Route path="/inicio" exact component={Inicio}/>
+            <Route path="/home" exact component={HomeMaleteo}/>
         </div>         
       </Router>
       
