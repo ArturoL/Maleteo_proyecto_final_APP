@@ -6,6 +6,9 @@ import UbicacionBusquedaOpcciones from './UbicacionBusquedaOpciones';
 import RegistroUsuarios from "./registro/RegistroUsuarios";
 import LoginUsuario from "./login/LoginUsuario";
 import DetallesReserva from './detalles_reserva/detalles_reserva';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 
 

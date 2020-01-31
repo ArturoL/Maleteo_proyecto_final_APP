@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './HomeMaleteo.css';
 import UbicacionBusquedaOpcciones from './UbicacionBusquedaOpciones';
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Carousel from 'react-bootstrap/Carousel'
+
 
 
 
@@ -9,7 +12,7 @@ class HomeMaleteo extends /*React.*/ Component{
 
 
     
-
+    
 
     render(){
         return(
@@ -22,7 +25,7 @@ class HomeMaleteo extends /*React.*/ Component{
                 <div className="buscadorHome">
                     <input type="text" className="buscador col-xs-12"/>
                 </div>
-                <div className="formcalendario col-12">
+                <div className="formcalendario col-xs-2">
                     <input className='calendarioHome' placeholder='Deposito/Salida'/>
                 </div>
                 <div className="botonyNumero">
@@ -47,7 +50,42 @@ class HomeMaleteo extends /*React.*/ Component{
     
             <div className="novedades col-xs-12">
                 <p className="tituloNovedades">Novedades</p>
+                
+                                            <Carousel id='carrusel'>
+                                <Carousel.Item >
+                                  <div className='itemCarousel w-100'>
+                                    <img
+                                    id='imgcarousel'
+                                    className="d-block"
+                                    src="https://via.placeholder.com/150x100"
+                                    alt="First slide"
+                                    />
+                                    </div>
+                                    
+                                </Carousel.Item>
+                                <Carousel.Item >
+                                <div className='itemCarousel w-100'>
+                                    <img
+                                    id='imgcarousel'
+                                    className="d-block imgcarousel"
+                                    src="https://via.placeholder.com/150x100"
+                                    alt="Third slide"
+                                    />
+                                    </div>
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                <div className='itemCarousel w-100'>
+                                    <img
+                                    id='imgcarousel'
+                                    className="d-block imgcarousel"
+                                    src="https://via.placeholder.com/150x100"
+                                    alt="Third slide"
+                                    />
+                                    </div>
+                                </Carousel.Item>
+                                </Carousel>                
             </div>
+            
             <div className="experiencias col-xs-12">
                 <p className="tituloExperiencias">Experiencias</p>
                 <div className="experiencias">
@@ -71,15 +109,11 @@ class HomeMaleteo extends /*React.*/ Component{
     
         
             </div>
-        
     
         </div>
         
         
-        )
-        
-     }
-
+        )    }
 }
 
 export default HomeMaleteo
