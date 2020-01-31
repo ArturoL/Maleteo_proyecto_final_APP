@@ -12,7 +12,7 @@ const PORT = 4000;
 app.use(bodyParser.json());
 app.use(cors());
 
-mongoose.connect('mongodb://127.0.0.1:27017/maleteo');
+mongoose.connect('mongodb://127.0.0.1:27017/test');
 const conexion = mongoose.connection;
 conexion.once("open",function(){                            //conectar con BBDD a través de Mongoose
     console.log('¡¡Hemos conectado con Mongo!');
