@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './LoginUsuario.css';
+import { Route, Redirect } from 'react-router-dom';
+import ServicioLogin from '../servicios/ServicioLogin';
 
 
 class LoginUsuario extends /*React.*/ Component{
@@ -8,8 +10,8 @@ class LoginUsuario extends /*React.*/ Component{
     constructor(props){
         super(props);
         this.state={
-            email: '',
-            password:'',
+            email: 'aa@aa.aa',
+            password:'aaaa1111',
         }
         
         this.onChangeEmail = this.onChangeEmail.bind(this);
@@ -43,9 +45,9 @@ class LoginUsuario extends /*React.*/ Component{
             headers: {'Content-Type': 'application/json'}
         }).then((res)=> {
             if (res.status === 200) {
-
-                window.location = '/home.html'
+                ServicioLogin.setLogueado(true);
                 alert('Usuario login')
+                this.setState(this.state);
            
             } else {
                 alert('Usuario NO Autoriz')
@@ -55,36 +57,32 @@ class LoginUsuario extends /*React.*/ Component{
     }
 
 
-
-
-
-
-
-
-
     render(){
-        return(
-    
-    
-        <div class="sesion">
-            <h1 class='iniciaTitulo'>Inicia sesión <br/> ahora</h1>
-            <div class="botonesFaceyGoogle">
-                <button class='facebookbutton'>Facebook</button>
-                <button class='googlebutton'>Google</button>
+        return( 
+        <div className="sesion">
+            <h1 className='iniciaTitulo'>Inicia sesión <br/> ahora</h1>
+            <div className="botonesFaceyGoogle">
+                <button className='facebookbutton'>Facebook</button>
+                <button className='googlebutton'>Google</button>
             </div>
             <p>o utiliza tu correo electrónico</p>
         
-            <div class="formularioLogin">
-            <form class='formLogin' onSubmit={this.onSubmit}>
-                <label for="">Direccion de correo electrónico</label>
-                <input type="text" value={this.state.email} onChange={this.onChangeEmail} placeholder="Email"/>
+            <div className="formularioLogin">
+            <form className='formLogin' onSubmit={this.onSubmit}>
+                <label>Direccion de correo electrónico</label>
+                <input type="text" 
+                    value={this.state.email} onChange={this.onChangeEmail} placeholder="Email"/>
                 
-                <label for="">Contraseña</label>
-                <input type="password" value={this.state.password} onChange={this.onChangePassword} placeholder="Contraseña"/>
+                <label>Contraseña</label>
+                <input type="password" 
+                    value={this.state.password} onChange={this.onChangePassword} placeholder="Contraseña"/>
                 
-                <button type="submit" class="botonLogin">Iniciar sesión</button>
+                <button type="submit" className="botonLogin">Iniciar sesión</button>
         
             </form>
+            {
+             (ServicioLogin.getLogueado() ? <Redirect to="/inicio" /> : "")
+            }
             </div>
         </div>
     
