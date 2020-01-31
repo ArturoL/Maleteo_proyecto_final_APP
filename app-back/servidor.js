@@ -15,6 +15,8 @@ app.use(cors());
 mongoose.connect('mongodb://127.0.0.1:27017/test');
 const conexion = mongoose.connection;
 
+//let m = JSON.parse('./ddbb_maleteo.json')
+
 conexion.once("open",function(){
     console.log("0) - Eureka hemos conectado en Mongoose");
 });
@@ -57,9 +59,6 @@ rutasAPI.route("/login").post(function(reqPeticionHttp, resRespuestaHttp){
             console.log("Error:  " + err);
             resRespuestaHttp.status(401).send("Correo incorrecto")
         }else{
-            // console.log("AAAAAAAAA")
-            // console.log(usu)
-            // console.log(objUsuario.email)
             if(usu.email === objUsuario.email && usu.password === objUsuario.password){
                 resRespuestaHttp.status(200).json({
                     "hola":"Bienvenido " + usu.nombre
@@ -72,3 +71,49 @@ rutasAPI.route("/login").post(function(reqPeticionHttp, resRespuestaHttp){
     }).then(res=>res)
     .catch(err=>err);    
 });
+
+//Get Usuario unico
+rutasAPI.route("/getUser/:id").get(function(req,res){
+    const id = req.params.id;
+    console.log('id', id);
+    Usuario.findById(id)
+        .then(response=>res.status(200).send(response))
+        .catch(err=>err);
+});
+
+// //Editar perfil del usuario
+// rutasAPI.route("/edit/:id").put(function(req,res){
+//     console.log("Entrando en editar?")
+//     let editUsu = new Usuario(req.body);
+//     editUsu._id = req.params.id;
+//     Usuario.findById(editUsu._id, function(err,user){
+//         for(const prop in req.body){
+//             user[prop] = req.body[prop];
+//         }
+//         user.save();
+//     }).then(res=>res).catch(err=>err);
+// });
+
+// //Eliminar usuario
+// rutasAPI.route("/:id").delete(function(req,res){
+//     let consultaFindOne = Usuario.findById(req.params.id);
+//     consultaFindOne.exec((err,resDoc)=>{
+//         if(err){
+//             res.json({"mensaje":"No se ha encontrado"});
+//         }else{
+//             console.log("Usuario encontrado", resDoc);
+//             consultaFindOne.deleteOne().exec(
+//                 (err,resDoc2)=>{
+//                     let msjResp = "";
+//                     if(resDoc2.deletedCount>=1){
+//                         msjResp = "ELIMINADO";
+//                     }else{
+//                         msjResp = "NO eliminado";
+//                     }
+//                     console.log(resDoc2);
+//                     res.json({"mensaje":msjResp});
+//                 }
+//             )
+//         }
+//     })
+// });

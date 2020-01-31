@@ -26,8 +26,9 @@ class App extends Component {
     ServicioLogin.setLogueado(false);
 
     this.setState(this.state);
+
+    //TODO: quitar window.location
     window.location = "/iniciarsesion";
-    // alert("Que as");
   }
 
   render(){
