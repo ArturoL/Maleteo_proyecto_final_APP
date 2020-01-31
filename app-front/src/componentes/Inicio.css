@@ -1,8 +1,13 @@
-body{
-    /* background: linear-gradient(to bottom, rgba(255, 206, 50,1) 0%, rgba(249, 165, 25,1) 100%); */
+.contenedorInicio{
+    background: linear-gradient(to bottom, rgba(255, 206, 50,1) 0%, rgba(249, 165, 25,1) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    
 }
+
+
 
 .logo{
     display: grid;

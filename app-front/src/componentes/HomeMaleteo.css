@@ -5,39 +5,46 @@
 }
 
 .titulohome{
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.8em;
+    margin-bottom: 1em;
 }
 
 .formHome input{
     border: solid rgb(243, 243, 243) 1px;
     border-radius: 5px;
-    height: 5em;
+    height: 3.5em;
     box-shadow:  inset 0px 0px 15px 10px rgba(209, 209, 209, 0.1);
+    box-shadow:   0px 0px 5px 1px rgba(209, 209, 209, 0.5);
 }
 .buscador{
     width: 100%;
 }
+
+.formcalendario{
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 .calendarioHome{
     background-color: white;
     border: solid rgb(243, 243, 243) 1px;
     border-radius: 5px;
-    height: 5em;
+    height: 3.5em;
     width: 100%;
     box-shadow:  inset 0px 0px 10px 2px rgba(102, 65, 65, 0.05);
-}
-.formcalendario{
-    width: 100%;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    
 }
 
 .formHome select{
     border: solid rgb(243, 243, 243) 1px;
     border-radius: 5px;
-    height: 5em;
+    height: 3.5em;
     box-shadow:  inset 0px 0px 15px 10px rgba(209, 209, 209, 0.1);
     width: 48%;
+    box-shadow:   0px 0px 5px 1px rgba(209, 209, 209, 0.5);
+
     
 }
 .botonyNumero {
@@ -53,21 +60,41 @@
     color: white;
 }
 
+.itemCarousel{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+#imgcarousel{
+    border-radius: 10px;
+    padding: 2em;
+    width: 100%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    
+}
+
+
+
 .buscarBoton{
     width: 48%;
     text-align: center;
     background-color: rgb(246,143,36);
     box-shadow:black,50%;
-    height: 5em;
+    height: 3.5em;
     border-style: none;
     border-radius: 5px;
     color: white;
     font-weight: 800;
+    box-shadow:   0px 0px 5px 1px rgba(209, 209, 209, 0.5);
+
 }
 
 .tituloNovedades{
     font-size: 1.8em;
-    font-weight: 700;
+    font-weight: 500;
 }
 .tituloExperiencias{
     font-size: 1.8em;
@@ -77,8 +104,19 @@
 .imagenArticulo{
     width: 100%;
     height: 200px;
+    border-radius: 10px;
+    margin-top: 0.8em;
+    margin-bottom: 1em;
 }
 
 .numeroMaletas option{
     color: grey 0.5;
+}
+.experiencias{
+    margin-top: 2em;
+}
+
+.expArticle{
+    margin-top: 2em;
+    margin-bottom: 2em;
 }

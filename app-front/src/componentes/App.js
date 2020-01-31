@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link, Redirect} from "react-router-dom";
 import './App.css';
+import HomeMaleteo from "./HomeMaleteo";
+import UbicacionBusquedaOpcciones from './UbicacionBusquedaOpciones';
 import RegistroUsuarios from "./registro/RegistroUsuarios";
 import LoginUsuario from "./login/LoginUsuario";
+import DetallesReserva from './detalles_reserva/detalles_reserva';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Inicio from "./Inicio";
 import ServicioLogin from '../servicios/ServicioLogin';
 import HomeMaleteo from './HomeMaleteo';
@@ -57,7 +61,7 @@ class App extends Component {
                   </React.Fragment>
                 ) : (
                   <div>
-                    <a onClick = { this.onClickLogout } >Cerrar Sesion</a>
+                    <a onClick ={this.onClickLogout} >Cerrar Sesion</a>
                     <Redirect to="/iniciarsesion"/>
                   </div>
                 )
@@ -68,6 +72,8 @@ class App extends Component {
             <Route path="/registro" exact component={RegistroUsuarios}/>
             <Route path="/inicio" exact component={Inicio}/>
             <Route path="/home" exact component={HomeMaleteo}/>
+          <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
+          <Route path="/detalles_reserva" exact component={DetallesReserva}/>
         </div>         
       </Router>
       
