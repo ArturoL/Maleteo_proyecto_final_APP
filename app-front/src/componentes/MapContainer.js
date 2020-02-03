@@ -67,7 +67,7 @@ import { Map,
 
 
 export default GoogleApiWrapper({
-    apiKey:"AIzaSyD5hrAlVFyCGhzu0_MsR90u6h0JDeCjlik"
+    apiKey:"AIzaSyDZD71P8o7Jppkz5IQLhzxtROFJeCi_HD4"
 })(MapContainer)
 
 
