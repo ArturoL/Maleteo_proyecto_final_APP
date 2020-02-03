@@ -81,7 +81,7 @@ rutasAPI.route("/getUser/:id").get(function(req,res){
 
 rutasAPI.route("/usuarios/guardianes").get(function(req,res){
     console.log('todo el mapa');
-    Usuario.find({guardian: true})
+    Usuario.find({guardian: "True"})
         .then(response=>res.status(200).send(response))
         .catch(err=>err);
 });
