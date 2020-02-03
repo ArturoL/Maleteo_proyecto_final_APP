@@ -6,7 +6,7 @@
         "password": "44urae55",
         "edad":25,
         "foto": "vacio",
-        "guardian": false
+        "guardian": "False"
     },
 
     {
@@ -16,7 +16,7 @@
         "password": "diam66",
         "edad":32,
         "foto": "vacio",
-        "guardian": false
+        "guardian": "False"
     },
     {
         "nombre": "Emerson",
@@ -25,7 +25,7 @@
         "password": "necante",
         "edad":37,
         "foto": "vacio",
-        "guardian": false
+        "guardian": "False"
     },
     {
         "nombre": "Dalton",
@@ -34,7 +34,7 @@
         "password": "tortor",
         "edad":33,
         "foto": "vacio",
-        "guardian": true,
+        "guardian": "True",
         "datos_guardian": {
             "ubicacion": {
                 "lat":40.44897932,
@@ -59,7 +59,7 @@
         "password": "estfhghfyf",
         "edad":28,
         "foto": "vacio",
-        "guardian": true,
+        "guardian": "True",
         "datos_guardian": {
             "ubicacion": {
                 "lat":40.46244854,
@@ -84,7 +84,7 @@
         "password": "magna5465",
         "edad":88,
         "foto": "vacio",
-        "guardian": true,
+        "guardian": "True",
         "datos_guardian": {
             "ubicacion": {
                 "lat":40.42847961,
@@ -109,7 +109,7 @@
         "password": "a892ddcnc",
         "edad":22,
         "foto": "vacio",
-        "guardian": true,
+        "guardian": "True",
         "datos_guardian": {
             "ubicacion": {
                 "lat":40.46943586,
@@ -134,7 +134,7 @@
         "password": "etndnkkk23",
         "edad":38,
         "foto": "vacio",
-        "guardian": true,
+        "guardian": "True",
         "datos_guardian": {
             "ubicacion": {
                 "lat":40.45638975,
@@ -159,7 +159,7 @@
         "password": "nonummypretty",
         "edad":54,
         "foto": "vacio",
-        "guardian": false
+        "guardian": "False"
     },
     {
         "nombre": "Ulric",
@@ -168,7 +168,7 @@
         "password": "Duisyaesta",
         "edad":29,
         "foto": "vacio",
-        "guardian": false
+        "guardian": "False"
     }
 
  ]
