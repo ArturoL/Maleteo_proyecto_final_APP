@@ -1,4 +1,4 @@
-[
+ [
     {
         "nombre": "Yuli",
         "apellido": "Ewing",
@@ -36,7 +36,10 @@
         "foto": "vacio",
         "guardian": "True",
         "datos_guardian": {
-            "ubicacion": "Madrid",
+            "ubicacion": {
+                "lat":40.44897932,
+                "lng": -3.65318272
+            },
             "capacidad_maletas": 10,
             "titulo": "El hall de hsgsdfafdf",
             "disponibilidad":"Lunes-Viernes",
@@ -58,7 +61,10 @@
         "foto": "vacio",
         "guardian": "True",
         "datos_guardian": {
-            "ubicacion": "Madrid",
+            "ubicacion": {
+                "lat":40.46244854,
+                "lng":-3.73603243
+            },
             "capacidad_maletas": 10,
             "titulo": "El antro de Dalton",
             "disponibilidad" : "Sabados-Domingos",
@@ -80,7 +86,10 @@
         "foto": "vacio",
         "guardian": "True",
         "datos_guardian": {
-            "ubicacion": "Madrid",
+            "ubicacion": {
+                "lat":40.42847961,
+                "lng":-3.63071723
+            },
             "capacidad_maletas": 234,
             "titulo": "El palacete de Aguirre",
             "disponibilidad":"Sabados-Domingos",
@@ -102,7 +111,10 @@
         "foto": "vacio",
         "guardian": "True",
         "datos_guardian": {
-            "ubicacion": "Madrid",
+            "ubicacion": {
+                "lat":40.46943586,
+                "lng":-3.73705556
+            },
             "capacidad_maletas": 4,
             "titulo": "El trastero de Teda, Quin",
             "disponibilidad": "Lunes-Viernes",
@@ -124,7 +136,10 @@
         "foto": "vacio",
         "guardian": "True",
         "datos_guardian": {
-            "ubicacion": "Barcelona",
+            "ubicacion": {
+                "lat":40.45638975,
+                "lng":-3.73457809
+            },
             "capacidad_maletas": 2,
             "titulo": "El hall de Skyler",
             "disponibilidad":"Sabados-Domingos",
@@ -155,4 +170,5 @@
         "foto": "vacio",
         "guardian": "False"
     }
-]
+
+ ]
