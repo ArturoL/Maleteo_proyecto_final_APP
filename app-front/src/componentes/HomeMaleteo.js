@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import Modal from 'react-modal';
+import ServicioLogin from '../servicios/ServicioLogin';
 
 
 Modal.setAppElement('#root');
@@ -17,12 +18,33 @@ class HomeMaleteo extends /*React.*/ Component{
             fechaVuelta: '',
             horaIda: '',
             horaVuelta: '',
+            numeroMaletas: '',
             modalOpen: false
         }
     }
 
     componentDidMount(){
         // this.setState(this.state)
+    }
+
+    onClick(ev){
+        ev.preventDefault();
+
+        window.fetch('http://localhost:4000/api/malt/search',{
+            method: 'POST',
+            body: JSON.stringify({
+                "fecha": this.state.fechaIda,
+                "maletas":this.state.numeroMaletas
+            }), 
+            headers: {'Content-Type': 'application/json'}
+        }).then((res)=> {
+            if (res.status === 200) {
+                this.setState(this.state);
+           
+            } else {
+                console.log("Fallo en la busqueda")
+            }})
+        .catch((vacas)=> 'Pues habra ido mal')
     }
 
     // renderModalContent = fechasSelecciondas => {
@@ -141,43 +163,51 @@ class HomeMaleteo extends /*React.*/ Component{
         console.log(fechasSelecciondas)
         return(
         <div className='wrapper'>
-            <div className='contenedorHome col-xs-12'>
-            <div className='homeTitulo col-xs-12'>
-                <h1 className='titulohome'>Encuentra tu guardián</h1>
-            </div>
-            <div className="formHome col-xs-12">
-                <div className="buscadorHome">
-                    <input type="text" className="buscador col-xs-12"/>
+            <div className='contenedorHome col-xs-12'> 
+            {
+                (ServicioLogin.getLogueado() ?
+                    <>
+                    <div className='homeTitulo col-xs-12'>
+                        <h1 className='titulohome'>Encuentra tu guardián</h1>
+                    </div>
+                    <div className="formHome col-xs-12">
+                    <div className="buscadorHome">
+                        <input type="text" className="buscador col-xs-12"/>
+                    </div>
+                    <div className="formcalendario col-xs-2">
+                        {
+                            fechasSelecciondas ? (
+                                <p onClick={() => this.setState({ modalOpen: true })}>{`${horaIda}, ${fechaIda} - ${horaVuelta}, ${fechaVuelta}`}</p>
+                            ) : (
+                                <button onClick={() => this.setState({ modalOpen: true })}>Selecciona fechas</button>
+                            )
+                        }
+                    </div>
+                    <div className="botonyNumero">
+                            <select className="numeroMaletas" name="NMaletas" placeholder='Nº Maletas'
+                                onChange={e=>{
+                                    console.log(e.target.value)
+                                    this.setState({numeroMaletas: e.target.value})
+                                }}>
+                                <option defaultValue >Nº de Maletas</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+        
+                            </select>
+                        
+                        <button className='buscarBoton' onClick={this.onClick}><Link className='linkbtn'to="/search">Buscar</Link></button>
+                    </div>
                 </div>
-                <div className="formcalendario col-xs-2">
-                    {
-                        fechasSelecciondas ? (
-                            <p onClick={() => this.setState({ modalOpen: true })}>{`${horaIda}, ${fechaIda} - ${horaVuelta}, ${fechaVuelta}`}</p>
-                        ) : (
-                            <button onClick={() => this.setState({ modalOpen: true })}>Selecciona fechas</button>
-                        )
-                    }
-                </div>
-                <div className="botonyNumero">
-                        <select className="numeroMaletas" name="NMaletas" placeholder='Nº Maletas'>
-                            <option defaultValue >Nº de Maletas</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-    
-                        </select>
-                    
-                    
-                    <button className='buscarBoton'><Link className='linkbtn'to="/search">Buscar</Link></button>
-                </div>
-            </div>
-    
+                </>
+            : "")}
+        
             <div className="novedades col-xs-12">
                 <p className="tituloNovedades">Novedades</p>
                 <Carousel id='carrusel'>
