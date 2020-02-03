@@ -9,6 +9,7 @@ import DetallesReserva from './detalles_reserva/detalles_reserva';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Inicio from "./Inicio";
 import ServicioLogin from '../servicios/ServicioLogin';
+import MapContainer from "./MapContainer";
 
 
 class App extends Component {
@@ -74,6 +75,7 @@ class App extends Component {
             <Route path="/home" exact component={HomeMaleteo}/>
           <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
           <Route path="/detalles_reserva" exact component={DetallesReserva}/>
+          <Route path= "/mapa" exact component= {MapContainer}/>
         </div>         
       </Router>
       
