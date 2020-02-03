@@ -79,6 +79,13 @@ rutasAPI.route("/getUser/:id").get(function(req,res){
         .catch(err=>err);
 });
 
+rutasAPI.route("/usuarios/guardianes").get(function(req,res){
+    console.log('todo el mapa');
+    Usuario.find({guardian: true})
+        .then(response=>res.status(200).send(response))
+        .catch(err=>err);
+});
+
 // //Editar perfil del usuario
 // rutasAPI.route("/edit/:id").put(function(req,res){
 //     console.log("Entrando en editar?")
