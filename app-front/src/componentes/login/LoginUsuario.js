@@ -14,8 +14,8 @@ class LoginUsuario extends /*React.*/ Component{
     constructor(props){
         super(props);
         this.state={
-            email: 'aa@aa.aa',
-            password:'aaaa1111',
+            email: 'ultricies@diamPeitant.org',
+            password:'Duisyaesta',
         }
         
         this.onChangeEmail = this.onChangeEmail.bind(this);
@@ -52,6 +52,7 @@ class LoginUsuario extends /*React.*/ Component{
                 ServicioLogin.setLogueado(true);
                 alert('Usuario login')
                 this.setState(this.state);
+                this.props.callback();
            
             } else {
                 alert('Usuario NO Autoriz')

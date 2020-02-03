@@ -17,9 +17,9 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    // this.setState({
-    //   logueado: ServicioLogin.getLogueado()
-    // });  
+    this.state = {
+      logueado: ServicioLogin.getLogueado()
+    }
     this.onClickLogout = this.onClickLogout.bind(this);
   }
 
@@ -42,13 +42,13 @@ class App extends Component {
       <Router>
         <div className='wrapper'>
 
-          { ServicioLogin.getLogueado() ? "logueado" : "NO login"}
+          {/* { ServicioLogin.getLogueado() ? "logueado" : "NO login"} */}
 
           <header className='cabeceraApp col-xs-12'>
-            <a href="/home">Atras</a>
+            {/* <a href="/home">Atras</a> */}
             <nav className="navegadorN1">
               {
-                ! ServicioLogin.getLogueado() ? (
+                !this.state.logueado ? (
                   <React.Fragment>
 
                     <div className="iniciarSesion">
@@ -68,7 +68,7 @@ class App extends Component {
               }
             </nav>
           </header>    
-            <Route path="/iniciarsesion" exact component={LoginUsuario}/>
+            <Route path="/iniciarsesion" exact component={() => <LoginUsuario callback={() => this.setState( {logueado: true} )} />}/>
             <Route path="/registro" exact component={RegistroUsuarios}/>
             <Route path="/inicio" exact component={Inicio}/>
             <Route path="/home" exact component={HomeMaleteo}/>

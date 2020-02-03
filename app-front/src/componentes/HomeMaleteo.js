@@ -4,12 +4,141 @@ import UbicacionBusquedaOpcciones from './UbicacionBusquedaOpciones';
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
+import Modal from 'react-modal';
 
 
-
+Modal.setAppElement('#root');
 
 class HomeMaleteo extends /*React.*/ Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            fechaIda: '',
+            fechaVuelta: '',
+            horaIda: '',
+            horaVuelta: '',
+            modalOpen: false
+        }
+    }
+
+    componentDidMount(){
+        // this.setState(this.state)
+    }
+
+    // renderModalContent = fechasSelecciondas => {
+    //     console.log('AAA: ', fechasSelecciondas)
+    //     if (!fechasSelecciondas) {
+    //         return (
+    //             <>
+    //                 <input 
+    //                     onChange={e => {
+    //                         console.log(e.target.value);
+    //                         this.setState({ fechaIda: e.target.value })
+    //                     }}
+    //                     value={this.state.fechaIda}
+    //                     className='calendarioHome' 
+    //                     placeholder='Ida'
+    //                     type="date"
+    //                 />
+    //                 <input 
+    //                     onChange={e => {
+    //                         console.log(e.target.value);
+    //                         this.setState({ fechaVuelta: e.target.value })
+    //                     }}
+    //                     value={this.state.fechaVuelta}
+    //                     className='calendarioHome' 
+    //                     placeholder='Vuelta'
+    //                     type="date"
+    //                 />
+    //                 {/* <button onClick={() => this.setState({ modalOpen: false })}>¡Continuar!</button> */}
+    //             </>
+    //         )
+    //     }
+    //     else {
+    //         return (
+    //             <p>HORITAS</p>
+    //         )
+    //     }
+    // }
+
+    renderModalContent = fechasSelecciondas => 
+        <>
+            <div className="container">
+                <div className="row">
+                    <div className='col-sm-6'>
+                        <div className="form-group">
+                            <label>Fecha de Ida</label>
+                            <input 
+                                onChange={e => {
+                                    console.log(e.target.value);
+                                    this.setState({ fechaIda: e.target.value })
+                                }}
+                                value={this.state.fechaIda}
+                                className='calendarioHome' 
+                                placeholder='Ida'
+                                type="date"
+                            />
+                            <label>Fecha de Vuelta</label>
+                            <input 
+                                onChange={e => {
+                                    console.log(e.target.value);
+                                    this.setState({ fechaVuelta: e.target.value })
+                                }}
+                                value={this.state.fechaVuelta}
+                                className='calendarioHome' 
+                                placeholder='Vuelta'
+                                type="date"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            {
+                fechasSelecciondas && (
+                    <>
+                    {/* <p>Horitas</p> */}
+                    <div className="container">
+                        <div className="row">
+                            <div className='col-sm-6'>
+                                <label>Hora de Ida</label>
+                                <div className="form-group">
+                                    <input
+                                    onChange={e=>{
+                                        this.setState({horaIda: e.target.value})
+                                    }}
+                                    value={this.state.horaIda}
+                                    type="time"
+                                    min="01:00" max="00:00" required/>
+                                </div>
+                            </div>
+
+                            <div className='col-sm-6'>
+                                <label>Hora de Vuelta</label>
+                                <div className="form-group">
+                                    <input
+                                    onChange={e=>{
+                                        this.setState({horaVuelta: e.target.value})
+                                    }}
+                                    value={this.state.horaVuelta}
+                                    type="time"
+                                    min="01:00" max="00:00" required/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </>
+                )
+            }
+            <button onClick={() => this.setState({ modalOpen: false })}>¡Continuar!</button>
+        </>
+
     render(){
+        const { fechaIda, fechaVuelta, horaIda, horaVuelta } = this.state;
+        const fechasSelecciondas = (fechaIda && fechaIda !== '') && (fechaVuelta && fechaVuelta !== '');
+
+        console.log(fechasSelecciondas)
         return(
         <div className='wrapper'>
             <div className='contenedorHome col-xs-12'>
@@ -21,11 +150,17 @@ class HomeMaleteo extends /*React.*/ Component{
                     <input type="text" className="buscador col-xs-12"/>
                 </div>
                 <div className="formcalendario col-xs-2">
-                    <input className='calendarioHome' placeholder='Deposito/Salida'/>
+                    {
+                        fechasSelecciondas ? (
+                            <p onClick={() => this.setState({ modalOpen: true })}>{`${horaIda}, ${fechaIda} - ${horaVuelta}, ${fechaVuelta}`}</p>
+                        ) : (
+                            <button onClick={() => this.setState({ modalOpen: true })}>Selecciona fechas</button>
+                        )
+                    }
                 </div>
                 <div className="botonyNumero">
                         <select className="numeroMaletas" name="NMaletas" placeholder='Nº Maletas'>
-                            <option disabled selected >Nº de Maletas</option>
+                            <option defaultValue >Nº de Maletas</option>
                             <option>1</option>
                             <option>2</option>
                             <option>4</option>
@@ -45,40 +180,39 @@ class HomeMaleteo extends /*React.*/ Component{
     
             <div className="novedades col-xs-12">
                 <p className="tituloNovedades">Novedades</p>
-                
-                                            <Carousel id='carrusel'>
-                                <Carousel.Item >
-                                  <div className='itemCarousel w-100'>
-                                    <img
-                                    id='imgcarousel'
-                                    className="d-block"
-                                    src="https://via.placeholder.com/150x100"
-                                    alt="First slide"
-                                    />
-                                    </div>
-                                    
-                                </Carousel.Item>
-                                <Carousel.Item >
-                                <div className='itemCarousel w-100'>
-                                    <img
-                                    id='imgcarousel'
-                                    className="d-block imgcarousel"
-                                    src="https://via.placeholder.com/150x100"
-                                    alt="Third slide"
-                                    />
-                                    </div>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                <div className='itemCarousel w-100'>
-                                    <img
-                                    id='imgcarousel'
-                                    className="d-block imgcarousel"
-                                    src="https://via.placeholder.com/150x100"
-                                    alt="Third slide"
-                                    />
-                                    </div>
-                                </Carousel.Item>
-                                </Carousel>                
+                <Carousel id='carrusel'>
+                    <Carousel.Item >
+                        <div className='itemCarousel w-100'>
+                        <img
+                        id='imgcarousel'
+                        className="d-block"
+                        src="https://via.placeholder.com/150x100"
+                        alt="First slide"
+                        />
+                        </div>
+                        
+                    </Carousel.Item>
+                    <Carousel.Item >
+                    <div className='itemCarousel w-100'>
+                        <img
+                        id='imgcarousel'
+                        className="d-block imgcarousel"
+                        src="https://via.placeholder.com/150x100"
+                        alt="Third slide"
+                        />
+                        </div>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                    <div className='itemCarousel w-100'>
+                        <img
+                        id='imgcarousel'
+                        className="d-block imgcarousel"
+                        src="https://via.placeholder.com/150x100"
+                        alt="Third slide"
+                        />
+                        </div>
+                    </Carousel.Item>
+                </Carousel>
             </div>
             
             <div className="experiencias col-xs-12">
@@ -104,6 +238,12 @@ class HomeMaleteo extends /*React.*/ Component{
     
         
             </div>
+
+            <Modal
+                isOpen={this.state.modalOpen}
+            >
+                { this.renderModalContent(fechasSelecciondas) }
+            </Modal>
     
         </div>
         
