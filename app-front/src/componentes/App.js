@@ -9,7 +9,7 @@ import DetallesReserva from './detalles_reserva/detalles_reserva';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Inicio from "./Inicio";
 import ServicioLogin from '../servicios/ServicioLogin';
-import HomeMaleteo from './HomeMaleteo';
+
 
 class App extends Component {
 

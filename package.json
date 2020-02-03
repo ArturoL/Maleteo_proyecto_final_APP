@@ -1,0 +1,26 @@
+{
+  "name": "maleteo_proyecto_final",
+  "version": "1.0.0",
+  "description": "El mejor proyecto que hay del bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CCOviedo/maleteo_proyecto_final.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CCOviedo/maleteo_proyecto_final/issues"
+  },
+  "homepage": "https://github.com/CCOviedo/maleteo_proyecto_final#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.11"
+  }
+}
