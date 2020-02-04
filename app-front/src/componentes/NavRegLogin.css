@@ -1,0 +1,24 @@
+.navegadorN1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 3em;
+    margin-bottom: 2em;
+  }
+  
+  .iniciarSesion,.registro{
+    font-size: 1.2em;
+    color: black;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+    
+  }
+  
+  .navLogin,.navRegistro{
+    text-decoration: none;
+    color: black;
+  }
+  
+  nav.navegadorN1 a:focus {
+    border-bottom: 2px solid orange;
+  }

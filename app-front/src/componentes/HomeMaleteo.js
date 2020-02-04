@@ -63,11 +63,17 @@ class HomeMaleteo extends /*React.*/ Component{
 
     renderModalContent = fechasSelecciondas => 
         <>
-            <div className="container">
+            <div className="container contPopup">
                 <div className="row">
-                    <div className='col-sm-6'>
-                        <div className="form-group">
+                    <div className='contPopup2'>
+                        <div className="fechaCont">
+                            <div className='nombreCampo'>
                             <label>Fecha de Ida</label>
+                            <label>Fecha de Vuelta</label>
+                            </div>
+                            <div className='campos'>
+                            <div className='campo'>
+                            
                             <input 
                                 onChange={e => {
                                     console.log(e.target.value);
@@ -78,7 +84,9 @@ class HomeMaleteo extends /*React.*/ Component{
                                 placeholder='Ida'
                                 type="date"
                             />
-                            <label>Fecha de Vuelta</label>
+                            </div>
+                            <div className='campo'>
+                           
                             <input 
                                 onChange={e => {
                                     console.log(e.target.value);
@@ -89,6 +97,8 @@ class HomeMaleteo extends /*React.*/ Component{
                                 placeholder='Vuelta'
                                 type="date"
                             />
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,10 +110,15 @@ class HomeMaleteo extends /*React.*/ Component{
                     {/* <p>Horitas</p> */}
                     <div className="container">
                         <div className="row">
-                            <div className='col-sm-6'>
+                            <div className='contPopup2'>
+                                <div className='nombreCampo'>
                                 <label>Hora de Ida</label>
-                                <div className="form-group">
+                                <label>Hora de Vuelta</label>
+                                </div>
+                                <div className='campos'>
+                                <div className="campo">
                                     <input
+                                    className='inputCampo2'
                                     onChange={e=>{
                                         this.setState({horaIda: e.target.value})
                                     }}
@@ -111,12 +126,13 @@ class HomeMaleteo extends /*React.*/ Component{
                                     type="time"
                                     min="01:00" max="00:00" required/>
                                 </div>
-                            </div>
+                            
 
-                            <div className='col-sm-6'>
-                                <label>Hora de Vuelta</label>
-                                <div className="form-group">
+                            
+                            
+                                <div className="campo">
                                     <input
+                                    className='inputCampo2'
                                     onChange={e=>{
                                         this.setState({horaVuelta: e.target.value})
                                     }}
@@ -124,6 +140,8 @@ class HomeMaleteo extends /*React.*/ Component{
                                     type="time"
                                     min="01:00" max="00:00" required/>
                                 </div>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -131,7 +149,7 @@ class HomeMaleteo extends /*React.*/ Component{
                     </>
                 )
             }
-            <button onClick={() => this.setState({ modalOpen: false })}>¡Continuar!</button>
+            <button className='botonContinuar' onClick={() => this.setState({ modalOpen: false })}>¡Continuar!</button>
         </>
 
     render(){
@@ -149,7 +167,7 @@ class HomeMaleteo extends /*React.*/ Component{
                 <div className="buscadorHome">
                     <input type="text" className="buscador col-xs-12"/>
                 </div>
-                <div className="formcalendario col-xs-2">
+                <div className="formcalendario col-xs-12">
                     {
                         fechasSelecciondas ? (
                             <p onClick={() => this.setState({ modalOpen: true })}>{`${horaIda}, ${fechaIda} - ${horaVuelta}, ${fechaVuelta}`}</p>
