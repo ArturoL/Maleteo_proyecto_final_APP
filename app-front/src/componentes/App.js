@@ -4,12 +4,15 @@ import './App.css';
 import HomeMaleteo from "./HomeMaleteo";
 import UbicacionBusquedaOpcciones from './UbicacionBusquedaOpciones';
 import RegistroUsuarios from "./registro/RegistroUsuarios";
+import Bienvenido from "./Bienvenido";
 import LoginUsuario from "./login/LoginUsuario";
 import DetallesReserva from './detalles_reserva/detalles_reserva';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Inicio from "./Inicio";
 import ServicioLogin from '../servicios/ServicioLogin';
 import MapContainer from "./MapContainer";
+import Bienvenido2 from './Bienvenido2';
+import NavRegLogin from './NavRegLogin';
 
 class App extends Component {
 
@@ -33,8 +36,9 @@ class App extends Component {
     this.setState(this.state);
 
     //TODO: quitar window.location
-    window.location = "/iniciarsesion";
+    window.location = "nav/iniciarsesion";
   }
+
 
   render(){
 
@@ -43,38 +47,17 @@ class App extends Component {
         <div className='wrapper'>
 
           {/* { ServicioLogin.getLogueado() ? "logueado" : "NO login"} */}
-
-          <header className='cabeceraApp col-xs-12'>
-            {/* <a href="/home">Atras</a> */}
-            <nav className="navegadorN1">
-              {
-                !this.state.logueado ? (
-                  <React.Fragment>
-
-                    <div className="iniciarSesion">
-                      <Link to="/iniciarsesion" className='navLogin'> Iniciar sesión </Link>         
-                    </div>
-                    
-                    <div className="registro">
-                      <Link to="/registro" className='navRegistro'> Regístrate </Link>
-                    </div>
-                  </React.Fragment>
-                ) : (
-                  <div>
-                    <a onClick ={this.onClickLogout} >Cerrar Sesion</a>
-                    <Redirect to="/iniciarsesion"/>
-                  </div>
-                )
-              }
-            </nav>
-          </header>    
-            <Route path="/iniciarsesion" exact component={() => <LoginUsuario callback={() => this.setState( {logueado: true} )} />}/>
-            <Route path="/registro" exact component={RegistroUsuarios}/>
-            <Route path="/inicio" exact component={Inicio}/>
+           
+            <Route path="/" exact component={Inicio}/>
             <Route path="/home" exact component={HomeMaleteo}/>
-          <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
-          <Route path="/detalles_reserva" exact component={DetallesReserva}/>
           <Route path= "/mapa" exact component= {MapContainer}/>
+            <Route path="/inicio" exact component={Bienvenido}/>
+            <Route path="/continuar" exact component={Bienvenido2}/>
+            <Route path="/nav/iniciarsesion" exact component={NavRegLogin}/>
+            {/* <Route path="/nav/iniciarsesion" exact component={()=><LoginUsuario callback={()=>this.setState({logueado:true} )} /> }/> */}
+            <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
+            <Route path="/detalles_reserva" exact component={DetallesReserva}/>
+            
         </div>         
       </Router>
       

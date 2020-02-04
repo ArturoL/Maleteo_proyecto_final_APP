@@ -76,7 +76,7 @@ class RegistroUsuarios extends /*React.*/ Component{
             .catch((vacas)=> 'Pues habra ido mal jojo')
 
             //TODO: quitar window.location
-            window.location = "/iniciarsesion";
+            window.location = "/nav/iniciarsesion";
         }
     }
 
