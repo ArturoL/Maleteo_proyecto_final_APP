@@ -190,7 +190,7 @@ class HomeMaleteo extends /*React.*/ Component{
                     </div>
                     <div className="formHome col-xs-12">
                     <div className="buscadorHome">
-                        <input type="text" className="buscador col-xs-12"/>
+                        <a href="/mapa"><input type="text" className="buscador col-xs-12"/></a>
                     </div>
                     <div className="formcalendario col-xs-2">
                         {
