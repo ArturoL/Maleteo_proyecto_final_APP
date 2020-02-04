@@ -61,14 +61,14 @@ import { Map,
             return (
             <Marker
                     name={dato.nombre}
+                    //onClick={this.onMarkerClick}
                     title={dato.nombre + " " + dato.datos_guardian.titulo}
+                    icon= "http://maps.google.com/mapfiles/kml/paddle/G.png"
                     position={{lat: dato.datos_guardian.ubicacion.lat, lng: dato.datos_guardian.ubicacion.lng}}
-            />      
-            
+            />     
             );
          });
     }
-
     markersLoc(latitud,longitud){
         let currentLocation = this.state.datos.filter( dato => 'ubicacion' in dato.datos_guardian );
        
@@ -77,36 +77,27 @@ import { Map,
             <Marker
                     name="Mi posicion"
                     title="Mi pos"
-                    icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-
+                    icon = "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png"
+                    showingInfoWindow = "YOU ARE HERE"
                     position={{lat: latitud, lng: longitud}}
-                    
-
             />      
-            
             );
          });
     }
-   
     render(){
         console.log('render');
         return (
             <Map google={this.props.google}
-                zoom={10}
+                zoom={12}
                 center={{lat:this.state.latitud ,lng: this.state.longitud}}
             
             >
                 { this.markersLoc(this.state.latitud, this.state.longitud) }
                 { this.markers() }
-
             </Map>
         );
     }
 }
-//InitialCenter={{lat:40.417090, lng:-3.703440}}
-
-
-
 export default GoogleApiWrapper({
     apiKey:"AIzaSyDZD71P8o7Jppkz5IQLhzxtROFJeCi_HD4"
 })(MapContainer)
