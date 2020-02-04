@@ -49,8 +49,8 @@ class App extends Component {
           {/* { ServicioLogin.getLogueado() ? "logueado" : "NO login"} */}
            
             <Route path="/" exact component={Inicio}/>
-            <Route path="/home" exact component={HomeMaleteo}/>
-          <Route path= "/mapa" exact component= {MapContainer}/>
+            
+        
             <Route path="/inicio" exact component={Bienvenido}/>
             <Route path="/continuar" exact component={Bienvenido2}/>
             <Route path="/nav/iniciarsesion" exact component={NavRegLogin}/>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';  
 import './HomeMaleteo.css';
 import UbicacionBusquedaOpcciones from './UbicacionBusquedaOpciones';
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link , Redirect} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import Modal from 'react-modal';
 import ServicioLogin from '../servicios/ServicioLogin';
+
 
 
 Modal.setAppElement('#root');
@@ -291,7 +292,9 @@ class HomeMaleteo extends /*React.*/ Component{
                 isOpen={this.state.modalOpen}
             >
                 { this.renderModalContent(fechasSelecciondas) }
+
             </Modal>
+            
     
         </div>
         

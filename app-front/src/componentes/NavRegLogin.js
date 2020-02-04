@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import RegistroUsuarios from './registro/RegistroUsuarios'
 import ServicioLogin from '../servicios/ServicioLogin';
 import LoginUsuario from './login/LoginUsuario';
+import DentroApp from './DentroApp';
 
 
 
@@ -56,11 +57,8 @@ class NavRegLogin extends Component {
                       <Link to="/nav/registro" className='navRegistro'> Regístrate </Link>
                     </div>
                   </React.Fragment>
-                ) : (
-                  <div>
-                    <a onClick ={this.onClickLogout} >Cerrar Sesion</a>
-                    <Redirect to="nav/iniciarsesion"/>
-                  </div>
+                ) : ( 
+                  <DentroApp></DentroApp>
                 )
               }
             </nav>
