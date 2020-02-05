@@ -14,6 +14,7 @@ import MapContainer from "./MapContainer";
 import Bienvenido2 from './Bienvenido2';
 import NavRegLogin from './NavRegLogin';
 import DentroApp from './DentroApp';
+import Thanks from './Thanks';
 
 
 class App extends Component {
@@ -50,9 +51,7 @@ class App extends Component {
 
           {/* { ServicioLogin.getLogueado() ? "logueado" : "NO login"} */}
            
-            <Route path="/" exact component={Inicio}/>
-            
-        
+            <Route path="/" exact component={Inicio}/>             
             <Route path="/inicio" exact component={Bienvenido}/>
             <Route path="/continuar" exact component={Bienvenido2}/>
             <Route path="/nav/iniciarsesion" exact component={NavRegLogin}/>
@@ -61,6 +60,7 @@ class App extends Component {
             <Route path="/detalles_reserva" exact component={DetallesReserva}/>
             <Route path="/home" exact component={DentroApp}/>
 
+            <Route path="/thanks" exact component={Thanks}/>
             
             
         </div>         

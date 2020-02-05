@@ -8,6 +8,7 @@ import HomeMaleteo from "./HomeMaleteo";
 import "./DentroApp.css"
 
 import ServicioLogin from '../servicios/ServicioLogin';
+import Thanks from './Thanks';
 
 
 
@@ -47,6 +48,7 @@ class DentroApp extends Component {
             <Router>
             <Route path="/home" exact component={HomeMaleteo}/>
             <Route path= "/mapa" exact component= {MapContainer}/>
+            <Route path= "/thanks" exact component={Thanks}/>
             </Router>
             <div className='futer'>
                     <div>
