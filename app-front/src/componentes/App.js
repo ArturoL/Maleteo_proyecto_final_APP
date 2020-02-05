@@ -13,6 +13,7 @@ import ServicioLogin from '../servicios/ServicioLogin';
 import MapContainer from "./MapContainer";
 import Bienvenido2 from './Bienvenido2';
 import NavRegLogin from './NavRegLogin';
+import DentroApp from './DentroApp';
 
 class App extends Component {
 
@@ -57,6 +58,9 @@ class App extends Component {
             {/* <Route path="/nav/iniciarsesion" exact component={()=><LoginUsuario callback={()=>this.setState({logueado:true} )} /> }/> */}
             <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
             <Route path="/detalles_reserva" exact component={DetallesReserva}/>
+            <Route path="/home" exact component={DentroApp}/>
+
+            
             
         </div>         
       </Router>

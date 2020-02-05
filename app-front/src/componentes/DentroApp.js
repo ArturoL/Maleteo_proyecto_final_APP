@@ -57,6 +57,9 @@ class DentroApp extends Component {
                     <div>Chat</div>
                     <div>Casita</div>
             </div>
+            {
+             (ServicioLogin.getLogueado() ? <Redirect to="/home"/> : "")
+            }
         </div>
       );
     }
