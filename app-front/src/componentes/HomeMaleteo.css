@@ -25,7 +25,73 @@
 
     margin-top: 1em;
     margin-bottom: 1em;
+    border: solid rgb(243, 243, 243) 1px;
+    border-radius: 5px;
+    height: 3em;
+    box-shadow:  inset 0px 0px 15px 10px rgba(209, 209, 209, 0.1);
+    box-shadow:   0px 0px 5px 1px rgba(209, 209, 209, 0.5);
 }
+
+.formcalendario button{
+    margin-left: 1em;
+    margin-top: 0.5em;
+}
+
+
+.contPopup2{
+    width: 100%;
+    margin-bottom: 2em;
+}
+.fechaCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.campo{
+    width: 48%;
+}
+
+.inputCampo2{
+    background-color: white;
+    width: 100%;
+    border: solid rgb(243, 243, 243) 1px;
+    border-radius: 5px;
+    height: 3.5em;
+    box-shadow:  inset 0px 0px 15px 10px rgba(209, 209, 209, 0.1);
+    box-shadow:   0px 0px 5px 1px rgba(209, 209, 209, 0.5);
+}
+.ReactModal__content{
+    border-radius: 20px;
+}
+
+.campos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nombreCampo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1em;
+    font-weight: 600;
+
+}
+.botonContinuar{
+    width: 48%;
+    text-align: center;
+    background-color: rgb(246,143,36);
+    box-shadow:black,50%;
+    height: 3.5em;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+    box-shadow:   0px 0px 5px 1px rgba(209, 209, 209, 0.5);
+    margin-top: 2em;
+    
+}
+
 
 .calendarioHome{
     background-color: white;
