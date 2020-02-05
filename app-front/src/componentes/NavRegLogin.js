@@ -58,13 +58,14 @@ class NavRegLogin extends Component {
                     </div>
                   </React.Fragment>
                 ) : ( 
-                  <DentroApp></DentroApp>
+                   <Redirect to="/home"/>
                 )
               }
             </nav>
           </header> 
           <Route path="/nav/iniciarsesion" exact component={() => <LoginUsuario callback={() => this.setState( {logueado: true} )} />}/>
           <Route path="/nav/registro" exact component={RegistroUsuarios}/>
+          <Route path="/home" exact component={DentroApp}/>
         </Router>
         
       );
