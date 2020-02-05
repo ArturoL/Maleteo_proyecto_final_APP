@@ -59,6 +59,8 @@ class App extends Component {
             <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
             <Route path="/detalles_reserva" exact component={DetallesReserva}/>
             <Route path="/home" exact component={DentroApp}/>
+            <Route path= "/mapa" exact component= {MapContainer}/>
+
 
             
             

@@ -46,8 +46,8 @@ class DentroApp extends Component {
         <div>
             <Router>
             <Route path="/home" exact component={HomeMaleteo}/>
-            <Route path= "/mapa" exact component= {MapContainer}/>
-            </Router>
+{/*             <Route path= "/mapa" exact component= {MapContainer}/>
+ */}            </Router>
             <div className='futer'>
                     <div>
                     <a onClick ={this.onClickLogout} >Cerrar Sesion</a>
