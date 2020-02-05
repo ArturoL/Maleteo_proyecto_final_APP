@@ -52,12 +52,14 @@ class DentroApp extends Component {
             </Router>
             <div className='futer'>
                     <div>
-                    <a onClick ={this.onClickLogout} >Cerrar Sesion</a>
+              
+                    <img onClick ={this.onClickLogout} className='loguito' src={require('../assets/003-boton-de-encendido-apagado.svg')}/>
                     <Redirect to="nav/iniciarsesion"/>
+
                     </div>
-                    <div>Lupita</div>
-                    <div>Chat</div>
-                    <div>Casita</div>
+                    <div><img className='loguito' src={require('../assets/001-casa.svg')}/></div>
+                    <div><img className='loguito' src={require('../assets/002-busqueda.svg')}/></div>
+                    <div><img className='loguito' src={require('../assets/004-comentario.svg')}/></div>
             </div>
             {
              (ServicioLogin.getLogueado() ? <Redirect to="/home"/> : "")
