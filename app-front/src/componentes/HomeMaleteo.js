@@ -235,7 +235,7 @@ class HomeMaleteo extends /*React.*/ Component{
                         <img
                         id='imgcarousel'
                         className="d-block"
-                        src="https://via.placeholder.com/150x100"
+                        src={require("../assets/imagen02.jpeg")}
                         alt="First slide"
                         />
                         </div>
@@ -246,7 +246,7 @@ class HomeMaleteo extends /*React.*/ Component{
                         <img
                         id='imgcarousel'
                         className="d-block imgcarousel"
-                        src="https://via.placeholder.com/150x100"
+                        src={require("../assets/imagen03.jpg")}
                         alt="Third slide"
                         />
                         </div>
@@ -256,7 +256,7 @@ class HomeMaleteo extends /*React.*/ Component{
                         <img
                         id='imgcarousel'
                         className="d-block imgcarousel"
-                        src="https://via.placeholder.com/150x100"
+                        src={require("../assets/imagen01.jpeg")}
                         alt="Third slide"
                         />
                         </div>
@@ -268,7 +268,7 @@ class HomeMaleteo extends /*React.*/ Component{
                 <p className="tituloExperiencias">Experiencias</p>
                 <div className="experiencias">
                     <article className="expArticle">
-                        <img className='imagenArticulo' src="https://via.placeholder.com/150"/>
+                        <img className='imagenArticulo' src={require("../assets/groupCopy7@3x.png")}/>
                         <div className="descripcion col-xs-12">
                             <h3 className="tituloarticle">Un pedacito de italia en tu vida</h3>
                             <p>Pimpam trucu trucu pim pam lorem ipsum trucu trucu lorem sempen fidelis cucu meca peca lucu trucu trucu</p>
@@ -276,8 +276,8 @@ class HomeMaleteo extends /*React.*/ Component{
                     </article>
                     
                     <article className="expArticle">
-                            <img  className='imagenArticulo' src="https://via.placeholder.com/150" />
                             <div className="descripcion col-xs-12">
+                            <img className='imagenArticulo' src={require("../assets/groupCopy8@3x.png")}/>
                                 <h3 className="tituloarticle">Un pedacito de italia en tu vida</h3>
                                 <p>Pimpam trucu trucu pim pam lorem ipsum trucu trucu lorem sempen fidelis cucu meca peca lucu trucu trucu</p>
                             </div>
