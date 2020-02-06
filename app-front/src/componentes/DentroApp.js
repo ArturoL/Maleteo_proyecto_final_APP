@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom';
 import MapContainer from "./MapContainer";
 import HomeMaleteo from "./HomeMaleteo";
+import DetallesReserva from "./detalles_reserva/detalles_reserva";
 import "./DentroApp.css"
 
 import ServicioLogin from '../servicios/ServicioLogin';
@@ -49,6 +50,7 @@ class DentroApp extends Component {
             <Route path="/home" exact component={HomeMaleteo}/>
             <Route path= "/mapa" exact component= {MapContainer}/>
             <Route path= "/thanks" exact component={Thanks}/>
+            <Route path= "/detalle_reserva" exact component={DetallesReserva}/>
             </Router>
             <div className='futer'>
                     <div>

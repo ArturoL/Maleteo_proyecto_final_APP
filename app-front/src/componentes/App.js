@@ -14,6 +14,7 @@ import MapContainer from "./MapContainer";
 import Bienvenido2 from './Bienvenido2';
 import NavRegLogin from './NavRegLogin';
 import DentroApp from './DentroApp';
+import Thanks from './Thanks';
  
 class App extends Component { 
   constructor(props) {
@@ -45,22 +46,22 @@ class App extends Component {
         <div className='wrapper'>
         
           {/* { ServicioLogin.getLogueado() ? "logueado" : "NO login"} */}
+           
+            <Route path="/" exact component={Inicio}/>             
+            <Route path="/inicio" exact component={Bienvenido}/>
+            <Route path="/continuar" exact component={Bienvenido2}/>
+            <Route path="/nav/iniciarsesion" exact component={NavRegLogin}/>
+            {/* <Route path="/nav/iniciarsesion" exact component={()=><LoginUsuario callback={()=>this.setState({logueado:true} )} /> }/> */}
+            <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
+            <Route path="/detalles_reserva" exact component={DentroApp}/>
+            <Route path="/home" exact component={DentroApp}/>
+            <Route path= "/mapa" exact component= {MapContainer}/>
+
+
+            <Route path="/thanks" exact component={Thanks}/>
           
-          <Route path="/" exact component={Inicio}/>
-          
-          
-          <Route path="/inicio" exact component={Bienvenido}/>
-          <Route path="/continuar" exact component={Bienvenido2}/>
-          <Route path="/nav/iniciarsesion" exact component={NavRegLogin}/>
-          {/* <Route path="/nav/iniciarsesion" exact component={()=><LoginUsuario callback={()=>this.setState({logueado:true} )} /> }/> */}
-          <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
-          <Route path="/detalles_reserva" exact component={DetallesReserva}/>
-          <Route path="/home" exact component={DentroApp}/>
-          <Route path= "/mapa" exact component= {MapContainer}/>
-          
-          
-        
-        </div> 
+            
+        </div>         
       </Router>
     
     );

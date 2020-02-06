@@ -59,9 +59,7 @@ class DetallesReserva extends /*React.*/ Component{
                 </div>
 
             </div>
-            <div className="footer">
-                ajax        aaa         aaaa        ddd
-            </div>
+           
         </div>
     
     
