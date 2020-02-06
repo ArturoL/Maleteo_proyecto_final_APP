@@ -64,3 +64,9 @@
     width: 100%;
     vertical-align: middle;
 }
+
+.botonBienvenida:active{
+    transform: translateY(4px);
+    transform: scale(0.9);
+}
+

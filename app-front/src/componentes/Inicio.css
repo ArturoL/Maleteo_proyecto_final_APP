@@ -25,6 +25,12 @@
    
 }
 
+
+.logoinici:active{
+    transform: translateY(4px);
+    transform: scale(0.9);
+}
+
 .maleta{
     margin: 0 auto;
 }
