@@ -49,4 +49,4 @@ class Thanks extends Component{
  )
  }
 }
-export default Thanks
+export default Thanks   

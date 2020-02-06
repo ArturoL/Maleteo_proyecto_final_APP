@@ -104,7 +104,6 @@ export class MapContainer extends Component {
           visible={true}
         >
        
-       
            
           <div className="detail">{dato.datos_guardian.titulo}</div>
           <div className="detail">{dato.nombre}</div>
