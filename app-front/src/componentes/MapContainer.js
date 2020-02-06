@@ -124,10 +124,17 @@ export class MapContainer extends Component {
           }}
           visible={true}
         >
-          <div className="detail">{dato.datos_guardian.titulo}</div>
-          <div className="detail">Nombre guardian: {dato.nombre}</div>
-          <div className="detail">Valoracion: {dato.datos_guardian.valoracion}</div>
-          <div><button className="button"><a href="/detalles_reserva">Reservar</a></button></div>
+          <div className='markerCont'>
+          <div className="detail campoMarker">
+            <h1 className= 'tituloMark'>{dato.datos_guardian.titulo}</h1></div>
+          <div className="detail campoMarker">
+          <h1 className= 'tituloMark'>Nombre guardian: </h1>
+          <div>{dato.nombre}</div></div>
+          <div className="detail campoMarker">
+          <h1 className= 'tituloMark'>Valoracion:</h1>
+          <div> {dato.datos_guardian.valoracion}</div></div>
+          <div><button className="button botonMarker"><a href="/detalles_reserva">Reservar</a></button></div>
+          </div>
         </InfoWindow>
      );
     }

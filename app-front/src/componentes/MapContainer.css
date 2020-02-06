@@ -13,8 +13,44 @@
 .button {
     background-color: rgb(226, 151, 53);
     width: 100px;
-    font-family: Arial, Helvetica, sans-serif
+    
 }
-.detail{background-color: rgba(255, 206, 50,1);
-font-size: 20px;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}
+.detail{
+font-size: 1.2em;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width: 100%;
+}
+.tituloMark{
+    font-size: 1em;
+    font-weight: 600;
+}
+.botonMarker{
+    
+    text-align: center;
+    background-color: rgb(246,143,36);
+    box-shadow:black,50%;
+    height: 3.5em;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+    box-shadow:   0px 0px 5px 1px rgba(209, 209, 209, 0.5);
+    margin-top: 2em;
+}
+
+.botonMarker a{
+    text-decoration: none;
+    color: white;
+}
+
+.markerCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 15em;
+    padding: 0.5em;
+    height: 15em;
+    margin-top: 1em;
+}
