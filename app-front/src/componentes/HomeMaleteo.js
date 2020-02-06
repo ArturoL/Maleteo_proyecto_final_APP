@@ -1,12 +1,11 @@
 import React, { Component } from 'react';  
 import './HomeMaleteo.css';
 import UbicacionBusquedaOpcciones from './UbicacionBusquedaOpciones';
-import { BrowserRouter as Router, Route, Link , Redirect} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import Modal from 'react-modal';
 import ServicioLogin from '../servicios/ServicioLogin';
-
 
 
 Modal.setAppElement('#root');
@@ -22,67 +21,56 @@ class HomeMaleteo extends /*React.*/ Component{
             numeroMaletas: '',
             modalOpen: false
         }
+
+        this.onClick = this.onClick.bind(this);
     }
 
     componentDidMount(){
         // this.setState(this.state)
     }
 
-    onClick(ev){
-        ev.preventDefault();
+    onClick(){
+        const obj ={
+            fecha: this.state.fechaIda,
+            maletas: this.state.numeroMaletas
+        }
+        // Esto lo hacemos debido a que la fecha nos viene como "año-mes-dia"
+        // y para que lo haga bien necesitamos "dia-mes-año"
+        obj.fecha = obj.fecha.split("-").reverse().join("-");
+        // Con el split separamos la fecha por los guiones (-), esto crea un array
+        // que podemos invertir con reverser(). Despues lo volvemos a juntar con join
 
-        window.fetch('http://localhost:4000/api/malt/search',{
-            method: 'POST',
-            body: JSON.stringify({
-                "fecha": this.state.fechaIda,
-                "maletas":this.state.numeroMaletas
-            }), 
-            headers: {'Content-Type': 'application/json'}
-        }).then((res)=> {
-            if (res.status === 200) {
-                this.setState(this.state);
-           
-            } else {
-                console.log("Fallo en la busqueda")
-            }})
-        .catch((vacas)=> 'Pues habra ido mal')
+        //alert("Mostrando BODY: " + JSON.stringify(obj));
+
+        if((typeof obj.fecha !== undefined && obj.fecha !== '') && (typeof obj.maletas !== undefined && obj.maletas !== '' && obj.maletas !== 'Nº de Maletas')){
+
+            window.fetch('http://localhost:4000/api/malt/usuarios/guardianes',{
+                method: 'post',
+                headers:{
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            }).then((resp)=> {
+                if (resp.status === 200) {
+                    console.log("Correcto????")
+                    console.log("Body:" + JSON.stringify(resp.body));
+                    resp.json().then(
+                        (arrayGuardianesDisp) => {
+                            console.log("JSON:" + JSON.stringify(arrayGuardianesDisp));
+                            sessionStorage.setItem("guardianes_disp", JSON.stringify(arrayGuardianesDisp));
+                            this.setState(this.state);
+                            window.location = "/mapa"
+                    });
+                } else {
+                    console.log("Fallo en la busqueda")
+                }})
+            .catch((vacas)=> 'Pues habra ido mal')
+
+        }else{
+            alert("No dejes los campos de busqueda vacios")
+        }
     }
-
-    // renderModalContent = fechasSelecciondas => {
-    //     console.log('AAA: ', fechasSelecciondas)
-    //     if (!fechasSelecciondas) {
-    //         return (
-    //             <>
-    //                 <input 
-    //                     onChange={e => {
-    //                         console.log(e.target.value);
-    //                         this.setState({ fechaIda: e.target.value })
-    //                     }}
-    //                     value={this.state.fechaIda}
-    //                     className='calendarioHome' 
-    //                     placeholder='Ida'
-    //                     type="date"
-    //                 />
-    //                 <input 
-    //                     onChange={e => {
-    //                         console.log(e.target.value);
-    //                         this.setState({ fechaVuelta: e.target.value })
-    //                     }}
-    //                     value={this.state.fechaVuelta}
-    //                     className='calendarioHome' 
-    //                     placeholder='Vuelta'
-    //                     type="date"
-    //                 />
-    //                 {/* <button onClick={() => this.setState({ modalOpen: false })}>¡Continuar!</button> */}
-    //             </>
-    //         )
-    //     }
-    //     else {
-    //         return (
-    //             <p>HORITAS</p>
-    //         )
-    //     }
-    // }
 
     renderModalContent = fechasSelecciondas => 
         <>
@@ -149,10 +137,7 @@ class HomeMaleteo extends /*React.*/ Component{
                                     type="time"
                                     min="01:00" max="00:00" required/>
                                 </div>
-                            
 
-                            
-                            
                                 <div className="campo">
                                     <input
                                     className='inputCampo2'
@@ -190,9 +175,9 @@ class HomeMaleteo extends /*React.*/ Component{
                         <h1 className='titulohome'>Encuentra tu guardián</h1>
                     </div>
                     <div className="formHome col-xs-12">
-                    <div className="buscadorHome">
+                    {/* <div className="buscadorHome">
                         <a href="/mapa"><input type="text" className="buscador col-xs-12"/></a>
-                    </div>
+                    </div> */}
                     <div className="formcalendario col-xs-2">
                         {
                             fechasSelecciondas ? (
@@ -220,8 +205,9 @@ class HomeMaleteo extends /*React.*/ Component{
                                 <option>10</option>
         
                             </select>
-                        
-                        <button className='buscarBoton' onClick={this.onClick}><Link className='linkbtn'to="/search">Buscar</Link></button>
+                        {/* TODO Falta añadirle el onClick */}
+                        {/* <button className='buscarBoton' onClick={this.onClick}><Link className='linkbtn' to="/mapa">Buscar</Link></button> */}
+                        <button className='buscarBoton' onClick={this.onClick}>Buscar</button>
                     </div>
                 </div>
                 </>
@@ -292,9 +278,7 @@ class HomeMaleteo extends /*React.*/ Component{
                 isOpen={this.state.modalOpen}
             >
                 { this.renderModalContent(fechasSelecciondas) }
-
             </Modal>
-            
     
         </div>
         

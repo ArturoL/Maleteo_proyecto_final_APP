@@ -80,33 +80,22 @@ rutasAPI.route("/getUser/:id").get(function(req,res){
 });
 
 //Mapeo de las ubicaciones
-rutasAPI.route("/usuarios/guardianes").get(function(req,res){
-    console.log('todo el mapa');
-    Usuario.find({guardian: "True"})
-        .then(response=>res.status(200).send(response))
-        .catch(err=>err);
-});
-
-//Busqueda (de momento sin ubicacion)
-rutasAPI.route("/search").get(function(req,res){
-    console.log('todo el mapa');
-
+rutasAPI.route("/usuarios/guardianes").post(function(req,res){
+    console.log(req.body)
     Usuario.find({guardian: "True"})
         .then(response=>{
-            console.log("AAAAAAA")
-            //const result = response.filter(item=>item.datos_guardian.no_disponible)
             const respuesta = response.filter(item=>{
                 if(!item.datos_guardian.no_disponible.includes(req.body.fecha)){
                     console.log("Todo ok")
                     console.log(item)
                     console.log(item.datos_guardian.capacidad_maletas)
                     if(parseInt(req.body.maletas) <= item.datos_guardian.capacidad_maletas){
-                        return true
+                        return item
                     }
                     
                 }
             })
-            res.send(respuesta)
+            res.status(200).send(respuesta)
             
         })
         .catch(err=>err);
