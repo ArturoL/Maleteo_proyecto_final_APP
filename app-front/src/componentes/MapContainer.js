@@ -105,7 +105,7 @@ export class MapContainer extends Component {
           <div className="detail">{dato.datos_guardian.titulo}</div>
           <div className="detail">{dato.nombre}</div>
           <div className="detail">{dato.datos_guardian.valoracion}</div>
-          <div><button>Reservar</button></div>
+          <div><button className="button">Reservar</button></div>
         </InfoWindow>
       );
     });
