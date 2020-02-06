@@ -13,7 +13,7 @@ class Thanks extends Component{
 
     render(){
         return(
-            <div className='wrapper contenedorthanks'>
+           
                 <div className='logoDiv'>
             
                 
@@ -39,7 +39,7 @@ class Thanks extends Component{
                 </div>
             </a>
             </div>
-            </div>
+            
         )
     }
 }
