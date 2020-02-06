@@ -95,6 +95,7 @@ rutasAPI.route("/usuarios/guardianes").post(function(req,res){
 
 // Insertar reserva
 function recibirReservaPost(peticionHttp,respuestaHttp){
+    // Comienza la reserva
     console.log("empieza reserva");
     let nuevaReserva = new Reserva( peticionHttp.body );
     let promesaDeGuardado = nuevaReserva.save();
