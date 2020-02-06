@@ -76,7 +76,7 @@ class LoginUsuario extends /*React.*/ Component{
             <form className='formLogin' onSubmit={this.onSubmit}>
                 <label>Direccion de correo electrónico</label>
                 <input type="text" 
-                    value={this.state.email} onChange={this.onChangeEmail} placeholder="Email"/>
+                    value={this.state.email} onChange={this.onChangeEmail} placeholder="email@email.com"/>
                 
                 <label>Contraseña</label>
                 <input type="password" 

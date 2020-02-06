@@ -12,12 +12,19 @@ class DetallesReserva extends /*React.*/ Component{
         //Para evitar el problema del this con JS hacemos siguiente
         // en el futuro cuando se invoque el metodo this sea realmente this
         
-        this.state={
-            nombre: 'caca',
-            email: 'caca@caca.com',
-            fecha: '7464',
-            numero_maletas:'3',
-        }
+        const datos_reserva = sessionStorage.getItem("datos_reserva");
+        const fecha_reserva = sessionStorage.getItem("fecha_reserva");
+        const maletas_reserva = sessionStorage.getItem("maletas_reserva");
+
+        this.state= {
+            datos_reserva: JSON.parse(datos_reserva),
+            fecha_reserva: fecha_reserva,
+            maletas_reserva: maletas_reserva
+        };
+        console.log(this.state.datos_reserva);
+        console.log(this.state.fecha_reserva);
+        console.log(this.state.maletas_reserva);
+        
         
         this.onChangeNombre = this.onChangeNombre.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
@@ -63,14 +70,16 @@ class DetallesReserva extends /*React.*/ Component{
     
     
     onSubmit(evt){
-        evt.preventDefault();// Invocamos al servicio Http ajax fetch....
+        evt.preventDefault();// Invocamos al servicio Http ajax fetch....+
+        
+        
         console.log(`Datos: ${this.state.nombre}, ${this.state.email}, ${this.state.fecha},${this.state.numero_maletas}`)
         window.fetch('http://localhost:4000/api/malt/detalles_reserva/reserva', {
             method: 'POST',
             body: JSON.stringify({
-                "nombre_guardian": this.state.nombre,
-                "email_guardian": this.state.email,
-                "fecha": this.state.fecha,
+                "nombre_guardian": this.state.datos_reserva.nombre,
+                "email_guardian": this.state.datos_reserva.email,
+                "fecha": this.state.fecha_reserva,
                 "numero_maletas":this.state.numero_maletas
             }), 
             headers: {'Content-Type': 'application/json'}
@@ -100,13 +109,13 @@ class DetallesReserva extends /*React.*/ Component{
                 <div className="detalles_reserva">
                     
                     <p>Nombre de tu guardián:</p>
-                    <input type="text" value={this.state.nombre} onChange={this.onChangeNombre}/>
+                    <input type="text" value={this.state.datos_reserva.nombre} onChange={this.onChangeNombre}/>
                     <p>Email de contacto:</p>
-                    <input type="email" value={this.state.email} onChange={this.onChangeEmail}/>
+                    <input type="email" value={this.state.datos_reserva.email} onChange={this.onChangeEmail}/>
                     <p>Fecha escogida:</p>
-                    <input type="text" value={this.state.fecha} onChange={this.onChangeFecha}/>
+                    <input type="text" value={this.state.fecha_reserva} onChange={this.onChangeFecha}/>
                     <p>Nº de maletas:</p>
-                    <input type="number" value={this.state.numero_maletas} onChange={this.onChangeNMaletas}/>
+                    <input type="number" value={this.state.maletas_reserva} onChange={this.onChangeNMaletas}/>
                     
                 </div>
                 <div className="detalles_button">
