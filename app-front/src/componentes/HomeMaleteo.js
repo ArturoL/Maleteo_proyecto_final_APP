@@ -34,6 +34,10 @@ class HomeMaleteo extends /*React.*/ Component{
             fecha: this.state.fechaIda,
             maletas: this.state.numeroMaletas
         }
+
+        sessionStorage.setItem("fecha_reserva", this.state.fechaIda)
+        sessionStorage.setItem("maletas_reserva", this.state.numeroMaletas)
+
         // Esto lo hacemos debido a que la fecha nos viene como "año-mes-dia"
         // y para que lo haga bien necesitamos "dia-mes-año"
         obj.fecha = obj.fecha.split("-").reverse().join("-");

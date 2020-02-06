@@ -10,8 +10,10 @@ export class MapContainer extends Component {
     this.state = {
       latitud: "",
       longitud: "",
-      datos: []
+      datos: [],
+      indice: -1
     };
+    this.markersInfo = this.markersInfo.bind(this)
   }
   // onMarkerClick = (props, marker, e) =>
   // this.setState({
@@ -28,6 +30,15 @@ export class MapContainer extends Component {
   // });
   // }
   // };
+
+  onMarkerClick (dato, indice) {
+    this.setState( {
+      "indice": indice
+    })
+
+    sessionStorage.setItem("datos_reserva", JSON.stringify(dato))
+  
+   }
 
   localizado = posicion => {
     this.setState({
@@ -49,8 +60,25 @@ export class MapContainer extends Component {
         //añado variables que son propiedades que le añado al mapa
         this.setState({ datos: datos });
       }); */
-      const disponibles = sessionStorage.getItem("guardianes_disp");
-      this.setState({datos: JSON.parse(disponibles)})
+      fetch("http://127.0.0.1:4000/api/malt/usuarios/guardianes",{
+          method: 'post'
+      })
+      .then(res => res.json())
+      .then(datos => {
+        console.log("datos");
+        var nuevoDato = [];
+        const disponibles = sessionStorage.getItem("guardianes_disp");
+        //disponibles = JSON.parse(disponibles);
+        JSON.parse(disponibles).forEach(element => {
+          element.mostrado = false;
+          nuevoDato.push(element);
+          console.log(element);
+        });
+        //añado variables que son propiedades que le añado al mapa
+        this.setState({ datos: nuevoDato });
+      });
+      // const disponibles = sessionStorage.getItem("guardianes_disp");
+      // this.setState({datos: JSON.parse(disponibles)})
 
   }
   markers() {
@@ -59,20 +87,20 @@ export class MapContainer extends Component {
       dato => "ubicacion" in dato.datos_guardian
     );
     console.log(datosConLatLong);
-
+    var that = this;
     return datosConLatLong.map(function(dato, i) {
       return (
         <Marker
           name={dato.nombre}
-          // onClick={this.onMarkerClick}
+          onClick={that.onMarkerClick.bind(that, dato, i)}
           title={dato.nombre + " " + dato.datos_guardian.titulo}
-          icon="http://maps.google.mapaom/mapfiles/kml/paddle/G.png"
+        
           position={{
             lat: dato.datos_guardian.ubicacion.lat,
             lng: dato.datos_guardian.ubicacion.lng
           }}
           icon={{
-              url: '/maleta2.svg',
+              url: 'https://www.flaticon.es/premium-icon/icons/svg/1537/1537790.svg',
               scaledSize: new window.google.maps.Size(50, 50)
           }}
         /*  onClick={()=>{
@@ -82,38 +110,60 @@ export class MapContainer extends Component {
       );
     });
   }
-  markersInfo() {
-    console.log(this.state.datos);
-    let datosConWindow = this.state.datos.filter(
-      dato =>
-        "ubicacion" in dato.datos_guardian &&
-        "valoracion" in dato.datos_guardian
-    );
-    console.log(datosConWindow);
 
-    return datosConWindow.map(function(dato, i) {
+  markersInfo() {
+    if (this.state.indice >= 0) {
+        let dato = this.state.datos[this.state.indice];
+        console.log(dato.nombre, dato.datos_guardian.valoracion);
       return (
-        //console.log(dato.nombre, dato.datos_guardian.valoracion),
-        <Router>
-        <InfoWindow options={{Width: 900}} 
-        
+        <InfoWindow 
+          options={{Width: 900}} 
           position={{
             lat: dato.datos_guardian.ubicacion.lat,
             lng: dato.datos_guardian.ubicacion.lng
           }}
           visible={true}
         >
+          <div className="detail">{dato.datos_guardian.titulo}</div>
+          <div className="detail">Nombre guardian: {dato.nombre}</div>
+          <div className="detail">Valoracion: {dato.datos_guardian.valoracion}</div>
+          <div><button className="button"><a href="/detalles_reserva">Reservar</a></button></div>
+        </InfoWindow>
+     );
+    }
+  }
+//   markersInfo() {
+//     console.log(this.state.datos);
+//     let datosConWindow = this.state.datos.filter(
+//       dato =>
+//         "ubicacion" in dato.datos_guardian &&
+//         "valoracion" in dato.datos_guardian
+//     );
+//     console.log(datosConWindow);
+
+//     return datosConWindow.map(function(dato, i) {
+//       return (
+//         //console.log(dato.nombre, dato.datos_guardian.valoracion),
+//         <Router>
+//         <InfoWindow options={{Width: 900}} 
+        
+//           position={{
+//             lat: dato.datos_guardian.ubicacion.lat,
+//             lng: dato.datos_guardian.ubicacion.lng
+//           }}
+//           visible={true}
+//         >
        
            
-          <div className="detail">{dato.datos_guardian.titulo}</div>
-          <div className="detail">{dato.nombre}</div>
-          <div className="detail">{dato.datos_guardian.valoracion}</div>
-          <div><button className="button"><Link to="/detalles_reserva"> Reservar</Link></button></div>
-        </InfoWindow>
-        </Router>
-      );
-    });
-  }
+//           <div className="detail">{dato.datos_guardian.titulo}</div>
+//           <div className="detail">{dato.nombre}</div>
+//           <div className="detail">{dato.datos_guardian.valoracion}</div>
+//           <div><button className="button"><Link to="/detalles_reserva"> Reservar</Link></button></div>
+//         </InfoWindow>
+//         </Router>
+//       );
+//     });
+//   }
   markersLoc(latitud, longitud) {
     let currentLocation = this.state.datos.filter(
       dato => "ubicacion" in dato.datos_guardian
@@ -124,7 +174,9 @@ export class MapContainer extends Component {
         <Marker
           name="Mi posicion"
           title="Mi pos"
-          icon="http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png"
+          icon={{
+              url:"https://image.flaticon.com/icons/svg/1329/1329665.svg",
+              scaledSize: new window.google.maps.Size(50, 50)}}
           position={{ lat: latitud, lng: longitud }}
         />
       );
