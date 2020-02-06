@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
 }
-.logoDiv{
+.logoDivinicio{
     
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
     vertical-align: middle;
 }
 
-.logo{
+.logoinici{
     display: flex;
     flex-direction: column;
     justify-content: center;
