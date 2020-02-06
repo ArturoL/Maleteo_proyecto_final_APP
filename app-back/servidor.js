@@ -1,4 +1,5 @@
 const Usuario = require('./usuario');
+const Reserva = require('./reserva');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -70,15 +71,6 @@ rutasAPI.route("/login").post(function(reqPeticionHttp, resRespuestaHttp){
     .catch(err=>err);    
 });
 
-//Get Usuario unico
-rutasAPI.route("/getUser/:id").get(function(req,res){
-    const id = req.params.id;
-    console.log('id', id);
-    Usuario.findById(id)
-        .then(response=>res.status(200).send(response))
-        .catch(err=>err);
-});
-
 //Mapeo de las ubicaciones
 rutasAPI.route("/usuarios/guardianes").post(function(req,res){
     console.log(req.body)
@@ -98,6 +90,35 @@ rutasAPI.route("/usuarios/guardianes").post(function(req,res){
             res.status(200).send(respuesta)
             
         })
+        .catch(err=>err);
+});
+
+// Insertar reserva
+function recibirReservaPost(peticionHttp,respuestaHttp){
+    // Comienza la reserva
+    console.log("empieza reserva");
+    let nuevaReserva = new Reserva( peticionHttp.body );
+    let promesaDeGuardado = nuevaReserva.save();
+    promesaDeGuardado.then( (reserva)=> {
+        console.log("4) - Se ha registrado en bbdd");
+        respuestaHttp.status(200).json({
+            "reserva": "Creada satisfactoriamente"
+        });
+    }).catch( error => {
+        console.log("4) - El registro ha fallado");
+        respuestaHttp.status(400).send("El registro ha fallado");
+    });
+    console.log("3) - La peticion Http ha sido procesada");
+}
+
+rutasAPI.route("/detalles_reserva/reserva").post(recibirReservaPost)
+
+//Get Usuario unico
+rutasAPI.route("/getUser/:id").get(function(req,res){
+    const id = req.params.id;
+    console.log('id', id);
+    Usuario.findById(id)
+        .then(response=>res.status(200).send(response))
         .catch(err=>err);
 });
 
