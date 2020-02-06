@@ -13,10 +13,10 @@ class DetallesReserva extends /*React.*/ Component{
         // en el futuro cuando se invoque el metodo this sea realmente this
         
         this.state={
-            nombre: '',
-            email: '',
-            fecha: '',
-            numero_maletas:'',
+            nombre: 'caca',
+            email: 'caca@caca.com',
+            fecha: '7464',
+            numero_maletas:'3',
         }
         
         this.onChangeNombre = this.onChangeNombre.bind(this);
@@ -58,20 +58,26 @@ class DetallesReserva extends /*React.*/ Component{
         });
     }
 
+   
+    
+    
+    
     onSubmit(evt){
         evt.preventDefault();// Invocamos al servicio Http ajax fetch....
         console.log(`Datos: ${this.state.nombre}, ${this.state.email}, ${this.state.fecha},${this.state.numero_maletas}`)
-        window.fetch('http://localhost:4000/api/usuarios/registro', {
+        window.fetch('http://localhost:4000/api/malt/detalles_reserva/reserva', {
             method: 'POST',
             body: JSON.stringify({
-                "name": this.state.name,
-                "email": this.state.email,
-                "edad": this.state.edad,
-                "password":this.state.password
+                "nombre_guardian": this.state.nombre,
+                "email_guardian": this.state.email,
+                "fecha": this.state.fecha,
+                "numero_maletas":this.state.numero_maletas
             }), 
             headers: {'Content-Type': 'application/json'}
-        }).then((res)=> alert('pues habra ido bien jeje'))
-        .catch((vacas)=> 'Pues habra ido mal jojo')
+        }).then((res)=> { window.location = "/thanks"; 
+                            console.log('Reserva Creada')})
+        .catch((vacas)=> alert( 'Algo ha ido mal'))
+       // window.location = "/thanks";
     }
 
 
@@ -90,16 +96,23 @@ class DetallesReserva extends /*React.*/ Component{
             <h2>Detalles de tu reserva</h2>
 
             <div className="detalles">
+            <form onSubmit={this.onSubmit}>
                 <div className="detalles_reserva">
+                    
                     <p>Nombre de tu guardián:</p>
+                    <input type="text" value={this.state.nombre} onChange={this.onChangeNombre}/>
                     <p>Email de contacto:</p>
+                    <input type="email" value={this.state.email} onChange={this.onChangeEmail}/>
                     <p>Fecha escogida:</p>
+                    <input type="text" value={this.state.fecha} onChange={this.onChangeFecha}/>
                     <p>Nº de maletas:</p>
+                    <input type="number" value={this.state.numero_maletas} onChange={this.onChangeNMaletas}/>
+                    
                 </div>
                 <div className="detalles_button">
-                    <button className="detalles_button_btn">Reservar</button>
+                    <button type='submit' className="detalles_button_btn">Reservar</button>
                 </div>
-
+                    </form> 
             </div>
            
         </div>
