@@ -42,28 +42,34 @@ class HomeMaleteo extends /*React.*/ Component{
 
         //alert("Mostrando BODY: " + JSON.stringify(obj));
 
-        window.fetch('http://localhost:4000/api/malt/usuarios/guardianes',{
-            method: 'post',
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(obj)
-        }).then((resp)=> {
-            if (resp.status === 200) {
-                console.log("Correcto????")
-                console.log("Body:" + JSON.stringify(resp.body));
-                resp.json().then(
-                    (arrayGuardianesDisp) => {
-                        console.log("JSON:" + JSON.stringify(arrayGuardianesDisp));
-                        sessionStorage.setItem("guardianes_disp", JSON.stringify(arrayGuardianesDisp));
-                        this.setState(this.state);
-                        window.location = "/mapa"
-                });
-            } else {
-                console.log("Fallo en la busqueda")
-            }})
-        .catch((vacas)=> 'Pues habra ido mal')
+        if((typeof obj.fecha !== undefined && obj.fecha !== '') && (typeof obj.maletas !== undefined && obj.maletas !== '' && obj.maletas !== 'Nº de Maletas')){
+
+            window.fetch('http://localhost:4000/api/malt/usuarios/guardianes',{
+                method: 'post',
+                headers:{
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            }).then((resp)=> {
+                if (resp.status === 200) {
+                    console.log("Correcto????")
+                    console.log("Body:" + JSON.stringify(resp.body));
+                    resp.json().then(
+                        (arrayGuardianesDisp) => {
+                            console.log("JSON:" + JSON.stringify(arrayGuardianesDisp));
+                            sessionStorage.setItem("guardianes_disp", JSON.stringify(arrayGuardianesDisp));
+                            this.setState(this.state);
+                            window.location = "/mapa"
+                    });
+                } else {
+                    console.log("Fallo en la busqueda")
+                }})
+            .catch((vacas)=> 'Pues habra ido mal')
+
+        }else{
+            alert("No dejes los campos de busqueda vacios")
+        }
     }
 
     renderModalContent = fechasSelecciondas => 
@@ -131,10 +137,7 @@ class HomeMaleteo extends /*React.*/ Component{
                                     type="time"
                                     min="01:00" max="00:00" required/>
                                 </div>
-                            
 
-                            
-                            
                                 <div className="campo">
                                     <input
                                     className='inputCampo2'
@@ -203,8 +206,8 @@ class HomeMaleteo extends /*React.*/ Component{
         
                             </select>
                         {/* TODO Falta añadirle el onClick */}
-                        <button className='buscarBoton' onClick={this.onClick}><Link className='linkbtn' to="/mapa">Buscar</Link></button>
-                        {/* <button className='buscarBoton' onClick={this.onClick}>Buscar</button> */}
+                        {/* <button className='buscarBoton' onClick={this.onClick}><Link className='linkbtn' to="/mapa">Buscar</Link></button> */}
+                        <button className='buscarBoton' onClick={this.onClick}>Buscar</button>
                     </div>
                 </div>
                 </>
