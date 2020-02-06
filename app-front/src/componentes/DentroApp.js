@@ -50,7 +50,7 @@ class DentroApp extends Component {
             <Route path="/home" exact component={HomeMaleteo}/>
             <Route path= "/mapa" exact component= {MapContainer}/>
             <Route path= "/thanks" exact component={Thanks}/>
-            <Route path= "/detalle_reserva" exact component={DetallesReserva}/>
+            <Route path="/detalles_reserva" exact component={DetallesReserva}/>
             </Router>
             <div className='futer'>
                     <div>

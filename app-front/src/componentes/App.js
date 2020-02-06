@@ -61,7 +61,7 @@ class App extends Component {
             <Route path="/thanks" exact component={Thanks}/>
           
             
-        </div>         
+        </div>
       </Router>
     
     );
