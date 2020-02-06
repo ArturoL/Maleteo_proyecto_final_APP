@@ -53,8 +53,8 @@ class App extends Component {
             <Route path="/nav/iniciarsesion" exact component={NavRegLogin}/>
             {/* <Route path="/nav/iniciarsesion" exact component={()=><LoginUsuario callback={()=>this.setState({logueado:true} )} /> }/> */}
             <Route path="/search" exact component={UbicacionBusquedaOpcciones}/>
-            <Route path="/detalles_reserva" exact component={DentroApp}/>
             <Route path="/home" exact component={DentroApp}/>
+            <Route path="/detalles_reserva" exact component={DetallesReserva}/>
             <Route path= "/mapa" exact component= {MapContainer}/>
 
 
