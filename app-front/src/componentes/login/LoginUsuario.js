@@ -50,7 +50,6 @@ class LoginUsuario extends /*React.*/ Component{
         }).then((res)=> {
             if (res.status === 200) {
                 ServicioLogin.setLogueado(true);
-                alert('Usuario login')
                 this.setState(this.state);
                 this.props.callback();
            
@@ -58,7 +57,7 @@ class LoginUsuario extends /*React.*/ Component{
                 alert('Usuario NO Autoriz')
            
             }})
-        .catch((vacas)=> 'Pues habra ido mal jojo')
+        .catch((vacas)=> 'Algo ha ido mal')
     }
 
 

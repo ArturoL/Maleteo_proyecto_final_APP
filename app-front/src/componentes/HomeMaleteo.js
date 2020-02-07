@@ -261,7 +261,7 @@ class HomeMaleteo extends /*React.*/ Component{
                         <img className='imagenArticulo' src={require("../assets/groupCopy7@3x.png")}/>
                         <div className="descripcion col-xs-12">
                             <h3 className="tituloarticle">Un pedacito de italia en tu vida</h3>
-                            <p>Pimpam trucu trucu pim pam lorem ipsum trucu trucu lorem sempen fidelis cucu meca peca lucu trucu trucu</p>
+                            <p> Ut efficitur erat eu dui consequat. In elementum, erat sed aliquet ullamcorper. Donec vitae feugiat varius ac ac mi. Proin in vulputate enim, eget egestas erat. Vivamus tempor at metus ut accumsan. In et arcu vel nisi gravida dignissim vitae nec mi. </p>
                         </div>
                     </article>
                     
@@ -269,7 +269,7 @@ class HomeMaleteo extends /*React.*/ Component{
                             <div className="descripcion col-xs-12">
                             <img className='imagenArticulo' src={require("../assets/groupCopy8@3x.png")}/>
                                 <h3 className="tituloarticle">Un pedacito de italia en tu vida</h3>
-                                <p>Pimpam trucu trucu pim pam lorem ipsum trucu trucu lorem sempen fidelis cucu meca peca lucu trucu trucu</p>
+                                <p> In elementum, erat sed aliquet ullamcorper, massa lectus mattis ligula. Donec velit feugiat varius ac ac mi. Proin in vulputate enim, eget egestas erat. Nunc eu odio purus. Vivamus tempor at metus ut accumsan. In et arcu vel nisi gravida dignissim vitae nec mi. </p>
                             </div>
                     </article>
                 </div>
