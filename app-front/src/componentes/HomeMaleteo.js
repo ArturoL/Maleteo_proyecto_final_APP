@@ -35,7 +35,7 @@ class HomeMaleteo extends /*React.*/ Component{
             maletas: this.state.numeroMaletas
         }
 
-        sessionStorage.setItem("fecha_reserva", this.state.fechaIda)
+        sessionStorage.setItem("fecha_reserva", this.state.fechaIda + " / " + this.state.fechaVuelta)
         sessionStorage.setItem("maletas_reserva", this.state.numeroMaletas)
 
         // Esto lo hacemos debido a que la fecha nos viene como "año-mes-dia"

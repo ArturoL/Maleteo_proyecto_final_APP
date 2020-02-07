@@ -109,13 +109,13 @@ class DetallesReserva extends /*React.*/ Component{
                 <div className="detalles_reserva">
                     
                     <p>Nombre de tu guardián:</p>
-                    <input type="text" value={this.state.datos_reserva.nombre} onChange={this.onChangeNombre}/>
+                    <input type="text" value={this.state.datos_reserva.nombre} onChange={this.onChangeNombre} disabled/>
                     <p>Email de contacto:</p>
-                    <input type="email" value={this.state.datos_reserva.email} onChange={this.onChangeEmail}/>
+                    <input type="email" value={this.state.datos_reserva.email} onChange={this.onChangeEmail} disabled/>
                     <p>Fecha escogida:</p>
-                    <input type="text" value={this.state.fecha_reserva} onChange={this.onChangeFecha}/>
+                    <input type="text" value={this.state.fecha_reserva} onChange={this.onChangeFecha} disabled/>
                     <p>Nº de maletas:</p>
-                    <input type="number" value={this.state.maletas_reserva} onChange={this.onChangeNMaletas}/>
+                    <input type="number" value={this.state.maletas_reserva} onChange={this.onChangeNMaletas} disabled/>
                     
                 </div>
                 <div className="detalles_button">
