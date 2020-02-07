@@ -80,7 +80,7 @@ class DetallesReserva extends /*React.*/ Component{
                 "nombre_guardian": this.state.datos_reserva.nombre,
                 "email_guardian": this.state.datos_reserva.email,
                 "fecha": this.state.fecha_reserva,
-                "numero_maletas":this.state.numero_maletas
+                "numero_maletas":this.state.maletas_reserva
             }), 
             headers: {'Content-Type': 'application/json'}
         }).then((res)=> { window.location = "/thanks"; 
@@ -120,9 +120,14 @@ class DetallesReserva extends /*React.*/ Component{
                 </div>
                 <div className="detalles_button">
                     <button type='submit' className="detalles_button_btn">Reservar</button>
+
                 </div>
                     </form> 
+                    <button  className="detalles_button_btn_cancelar"><a href="/mapa">Cancelar</a></button>
+
             </div>
+            
+
            
         </div>
     

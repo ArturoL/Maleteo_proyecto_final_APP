@@ -3,6 +3,7 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react"; /
 //añadir a App.js import MapContainer from "./components/maps.component";
 import  "./MapContainer.css";
 import { BrowserRouter as Router, Link} from "react-router-dom";
+import mapStyles from "./mapStyles";
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -81,6 +82,7 @@ export class MapContainer extends Component {
       // this.setState({datos: JSON.parse(disponibles)})
 
   }
+  
   markers() {
     console.log(this.state.datos);
     let datosConLatLong = this.state.datos.filter(
@@ -103,9 +105,8 @@ export class MapContainer extends Component {
               url: 'https://www.flaticon.es/premium-icon/icons/svg/1537/1537790.svg',
               scaledSize: new window.google.maps.Size(50, 50)
           }}
-        /*  onClick={()=>{
-              alert(dato.nombre)
-          }}  */
+               
+          
         />
       );
     });
@@ -139,38 +140,7 @@ export class MapContainer extends Component {
      );
     }
   }
-//   markersInfo() {
-//     console.log(this.state.datos);
-//     let datosConWindow = this.state.datos.filter(
-//       dato =>
-//         "ubicacion" in dato.datos_guardian &&
-//         "valoracion" in dato.datos_guardian
-//     );
-//     console.log(datosConWindow);
 
-//     return datosConWindow.map(function(dato, i) {
-//       return (
-//         //console.log(dato.nombre, dato.datos_guardian.valoracion),
-//         <Router>
-//         <InfoWindow options={{Width: 900}} 
-        
-//           position={{
-//             lat: dato.datos_guardian.ubicacion.lat,
-//             lng: dato.datos_guardian.ubicacion.lng
-//           }}
-//           visible={true}
-//         >
-       
-           
-//           <div className="detail">{dato.datos_guardian.titulo}</div>
-//           <div className="detail">{dato.nombre}</div>
-//           <div className="detail">{dato.datos_guardian.valoracion}</div>
-//           <div><button className="button"><Link to="/detalles_reserva"> Reservar</Link></button></div>
-//         </InfoWindow>
-//         </Router>
-//       );
-//     });
-//   }
   markersLoc(latitud, longitud) {
     let currentLocation = this.state.datos.filter(
       dato => "ubicacion" in dato.datos_guardian
@@ -178,6 +148,7 @@ export class MapContainer extends Component {
 
     return currentLocation.map(function(dato, i) {
       return (
+        
         <Marker
           name="Mi posicion"
           title="Mi pos"
@@ -189,19 +160,29 @@ export class MapContainer extends Component {
       );
     });
   }
-  I;
   render() {
     console.log("render");
+
+    let createMapOptions = function (maps) {
+      return {
+        panControl: false,
+        mapTypeControl: false,
+        scrollwheel: false,
+        
+      }
+    };
     return (
       <Map
         google={this.props.google}
         zoom={12}
         center={{ lat: this.state.latitud, lng: this.state.longitud }}
+        options={{styles:mapStyles}}
       >
         {this.markersLoc(this.state.latitud, this.state.longitud)}
         {this.markers()}
         {this.markersInfo()}
       </Map>
+      
     );
   }
 }

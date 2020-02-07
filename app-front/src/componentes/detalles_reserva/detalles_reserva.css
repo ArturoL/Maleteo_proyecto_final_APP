@@ -52,6 +52,30 @@ h2 {
     margin-bottom: 1em;
 }
 
+.detalles_button_btn_cancelar{
+    background-color: rgb(177, 67, 16);
+    box-shadow:black,50%;
+    height: 1em;
+    border-style: none;
+    border-radius: 5px;
+    height: 3em;
+    width: 80%;
+    align-self: center;
+    color: white;
+    font-weight: 800 ;
+    font-size: 1em;
+    margin-bottom: 1em;
+margin-left: 2em;}
+
+.detalles_button_btn_cancelar a{
+    
+    color:white;
+    
+}
+a:visited{
+    color:white
+}
+
 .footer{
     border-top: 1px solid ;
     border-color: rgb 216 216 216;
